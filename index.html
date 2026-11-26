@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#EEF1EC;--ink:#17231E;--moss:#2E5E4E;--rust:#B4532A;--rule:#C9D1CA;--muted:#5E6B64;color-scheme:light}
+    10|:root{--paper:#EEF1EC;--ink:#17231E;--moss:#2E5E4E;--rust:#B4532A;--rule:#C9D1CA;--muted:#5E6B64;color-scheme:light}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#121A16;--ink:#E4EBE5;--moss:#8FC7AE;--rust:#E08A5E;--rule:#2C3A33;--muted:#9AA89F;color-scheme:dark}}
 :root[data-theme="dark"]{--paper:#121A16;--ink:#E4EBE5;--moss:#8FC7AE;--rust:#E08A5E;--rule:#2C3A33;--muted:#9AA89F;color-scheme:dark}
 *{box-sizing:border-box}
@@ -19,27 +19,40 @@ form{display:flex;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:8px
 input{flex:1;min-width:0;font:500 20px "Source Sans 3",system-ui,sans-serif;background:transparent;border:0;color:var(--ink);padding:6px 0;outline:none}
 input::placeholder{color:var(--muted)}
 button{font:600 16px "Source Sans 3",system-ui,sans-serif;background:var(--moss);color:var(--paper);border:0;border-radius:4px;padding:8px 16px;cursor:pointer}
-button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
 .chips button{background:transparent;color:var(--moss);border:1px solid var(--rule);padding:4px 10px;font-weight:400;font-size:15px}
 .routing{margin:28px 0 0;color:var(--muted);font-size:15px}
-section.src{border-left:3px solid var(--moss);padding:4px 0 4px 18px;margin:28px 0}
+.routing b{color:var(--ink);font-weight:600}
+h3.group{font:700 13px "Source Sans 3",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:36px 0 0;border-bottom:1px solid var(--rule);padding-bottom:4px}
+section.src{border-left:3px solid var(--moss);padding:4px 0 4px 18px;margin:22px 0}
 section.src.fail{border-left-color:var(--rust)}
-.src h2{font:700 21px Fraunces,Georgia,serif;margin:0 0 2px}
+.src h2{font:700 21px Fraunces,Georgia,serif;margin:0 0 2px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
 .meta b{color:var(--moss);font-weight:600}
+.badge{font:600 11px/1 "Source Sans 3",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--moss);border:1px solid var(--moss);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.badge.proxy{color:var(--rust);border-color:var(--rust)}
 ol.results{list-style:none;padding:0;margin:0}
 ol.results li{padding:10px 0;border-top:1px solid var(--rule)}
 ol.results li:first-child{border-top:0}
 ol.results a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--rule)}
 ol.results a:hover{border-bottom-color:var(--moss)}
 ol.results p{margin:3px 0 0;color:var(--muted);font-size:15px}
+dl.facts{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0 0;font-size:14px}
+dl.facts div{display:flex;gap:4px}
+dl.facts dt{color:var(--muted)}
+dl.facts dd{margin:0;font-weight:600}
 .empty{color:var(--muted);font-size:15px;margin:0}
 details{margin-top:48px;border-top:1px solid var(--rule);padding-top:14px}
 summary{cursor:pointer;color:var(--moss);font-weight:600}
+.filter{display:flex;gap:10px;align-items:center;margin:14px 0 0;font-size:15px;color:var(--muted)}
+select{font:500 15px "Source Sans 3",system-ui,sans-serif;background:transparent;color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:4px 8px;max-width:100%}
 .catalog{list-style:none;padding:0;margin:12px 0 0;font-size:15px;color:var(--muted)}
-.catalog li{padding:6px 0;border-top:1px solid var(--rule)}
+.catalog li{padding:7px 0;border-top:1px solid var(--rule)}
+.catalog .cat-head{font:700 13px "Source Sans 3",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--moss);border-top:0;padding-top:18px}
 .catalog b{color:var(--ink);font-weight:600}
+.catalog a{color:var(--moss)}
+.catalog .sample{font-style:italic}
 </style>
 </head>
 <body>
@@ -56,204 +69,179 @@ summary{cursor:pointer;color:var(--moss);font-weight:600}
   <div id="out" aria-live="polite"></div>
 
   <details>
-    <summary>Sources in this build</summary>
+    <summary>Sources in this build (<span id="total">0</span>)</summary>
+    <p class="meta" id="summary"></p>
+    <label class="filter">Category
+      <select id="catFilter"></select>
+    </label>
     <ul class="catalog" id="cat"></ul>
   </details>
 </main>
 
+<script src="core/keyless.js"></script>
+<script src="core/router.js"></script>
+<script src="apis/books.js"></script>
+<script src="apis/news.js"></script>
+<script src="apis/reference.js"></script>
+<script src="apis/language.js"></script>
+<script src="apis/weather.js"></script>
+<script src="apis/disasters.js"></script>
+<script src="apis/science.js"></script>
+<script src="apis/space.js"></script>
+<script src="apis/geo.js"></script>
+<script src="apis/finance.js"></script>
+<script src="apis/food.js"></script>
+<script src="apis/animals.js"></script>
+<script src="apis/music.js"></script>
+<script src="apis/film.js"></script>
+<script src="apis/games.js"></script>
+<script src="apis/sports.js"></script>
+<script src="apis/health.js"></script>
+<script src="apis/government.js"></script>
+<script src="apis/environment.js"></script>
+<script src="apis/art.js"></script>
+<script src="apis/media.js"></script>
+<script src="apis/internet.js"></script>
+<script src="apis/dev.js"></script>
+<script src="apis/fun.js"></script>
+<script src="apis/time.js"></script>
+<script src="apis/travel.js"></script>
 <script>
-const enc = encodeURIComponent;
+(function () {
+  'use strict';
+  const K = window.Keyless;
+  const SOURCE_BUDGET_MS = 8000;
+  const EXAMPLES = [
+    'weather in Lisbon', 'define serendipity', '100 USD to EUR', 'bitcoin price',
+    'earthquakes', 'Marie Curie', 'nfl scores', 'tell me a joke', 'chicken recipe', 'ISS position',
+  ];
+  const CATEGORY_LABEL = Object.fromEntries(K.categories.map(c => [c.key, c.label]));
+  let searchId = 0;
 
-// Words that carry routing meaning but not search meaning.
-const SW = new Set(['weather','forecast','temperature','rain','in','for','of','the','a','an','is','what','who','about','today','now','how','define','meaning','country','capital','population','book','books','joke','news','paper','papers','art','artwork','product','food','synonym','synonyms','earthquake','earthquakes','code','repo','and','to']);
-const clean = q => q.toLowerCase().split(/\s+/).filter(w => w && !SW.has(w)).join(' ').replace(/[^\p{L}\p{N} .'-]/gu, '').trim();
-const term = q => clean(q) || q.trim();
-const need = (ok, msg) => { if (!ok) throw new Error(msg); return ok; };
-const strip = s => s.replace(/<[^>]+>/g, '').replace(/"/g, '"').replace(/&#039;/g, "'").replace(/&/g, '&');
+  const $ = id => document.getElementById(id);
+  const el = (tag, attrs = {}, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+    n.append(...kids.flat().filter(k => k != null && k !== false));
+    return n;
+  };
 
-async function getJSON(url) {
-  const r = await fetch(url);
-  if (!r.ok) throw new Error('HTTP ' + r.status);
-  return r.json();
-}
-
-// Each source: keywords that suggest it fits, and a run() that returns normalized items.
-const APIS = [
-  { id: 'wikipedia', name: 'Wikipedia', kw: ['wikipedia','who','history','about','science','explain','biography','place','person'],
-    run: async q => {
-      const d = await getJSON(`https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=5&format=json&origin=*&srsearch=${enc(term(q))}`);
-      return d.query.search.map(s => ({ title: s.title, body: strip(s.snippet), link: `https://en.wikipedia.org/wiki/${enc(s.title.replace(/ /g, '_'))}` }));
-    } },
-
-  { id: 'openlibrary', name: 'Open Library', kw: ['book','books','novel','author','read','reading','isbn'],
-    run: async q => {
-      const d = await getJSON(`https://openlibrary.org/search.json?limit=5&q=${enc(term(q))}`);
-      return d.docs.map(b => ({ title: b.title + (b.first_publish_year ? ` (${b.first_publish_year})` : ''), body: (b.author_name || []).slice(0, 2).join(', '), link: `https://openlibrary.org${b.key}` }));
-    } },
-
-  { id: 'weather', name: 'Open-Meteo', kw: ['weather','forecast','temperature','rain','climate','wind','humidity'],
-    run: async q => {
-      const place = need(clean(q), 'Name a place, like "weather in Lisbon".');
-      const g = await getJSON(`https://geocoding-api.open-meteo.com/v1/search?count=1&name=${enc(place)}`);
-      const p = need(g.results && g.results[0], `No place found for "${place}".`);
-      const w = (await getJSON(`https://api.open-meteo.com/v1/forecast?latitude=${p.latitude}&longitude=${p.longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation&timezone=auto`)).current;
-      return [{ title: p.name + (p.country ? ', ' + p.country : ''), body: `${w.temperature_2m}°C · humidity ${w.relative_humidity_2m}% · wind ${w.wind_speed_10m} km/h · precipitation ${w.precipitation} mm`, link: 'https://open-meteo.com/' }];
-    } },
-
-  { id: 'countries', name: 'REST Countries', kw: ['country','countries','capital','population','language','currency','flag','region'],
-    run: async q => {
-      const d = await getJSON(`https://restcountries.com/v3.1/name/${enc(term(q))}`);
-      return d.slice(0, 4).map(c => ({ title: c.name.common, body: `Capital ${c.capital ? c.capital[0] : '—'} · population ${c.population.toLocaleString()} · ${c.region}`, link: c.maps?.googleMaps || 'https://restcountries.com/' }));
-    } },
-
-  { id: 'dictionary', name: 'Free Dictionary API', kw: ['define','definition','meaning','word','spell','pronounce'],
-    run: async q => {
-      const w = term(q).split(' ')[0];
-      const d = await getJSON(`https://api.dictionaryapi.dev/api/v2/entries/en/${enc(w)}`);
-      const e = d[0];
-      return e.meanings.slice(0, 3).map(m => ({ title: `${e.word} · ${m.partOfSpeech}`, body: m.definitions[0].definition, link: `https://en.wiktionary.org/wiki/${enc(e.word)}` }));
-    } },
-
-  { id: 'hackernews', name: 'Hacker News (Algolia)', kw: ['news','tech','hacker','startup','programming','trending','latest','discussion'],
-    run: async q => {
-      const d = await getJSON(`https://hn.algolia.com/api/v1/search?tags=story&hitsPerPage=5&query=${enc(term(q))}`);
-      return d.hits.map(h => ({ title: h.title || '(untitled)', body: `${h.points} points · ${h.num_comments} comments`, link: h.url || `https://news.ycombinator.com/item?id=${h.objectID}` }));
-    } },
-
-  { id: 'github', name: 'GitHub search', kw: ['code','repo','repository','github','library','package','software','source'],
-    run: async q => {
-      const d = await getJSON(`https://api.github.com/search/repositories?per_page=5&q=${enc(term(q))}`);
-      return d.items.map(r => ({ title: r.full_name, body: `★ ${r.stargazers_count.toLocaleString()} · ${r.language || 'no language'} · ${r.description || ''}`, link: r.html_url }));
-    } },
-
-  { id: 'crossref', name: 'Crossref', kw: ['paper','papers','research','journal','doi','study','academic','citation','article','scientific'],
-    run: async q => {
-      const d = await getJSON(`https://api.crossref.org/works?rows=5&query=${enc(term(q))}`);
-      return d.message.items.map(i => ({
-        title: (i.title && i.title[0]) || '(untitled)',
-        body: [(i.author || []).slice(0, 2).map(a => a.family).filter(Boolean).join(', '), i.issued?.['date-parts']?.[0]?.[0]].filter(Boolean).join(' · '),
-        link: i.URL
-      }));
-    } },
-
-  { id: 'currency', name: 'Frankfurter', kw: ['currency','exchange','convert','usd','eur','gbp','jpy','dollar','euro','rate'],
-    run: async q => {
-      const m = need(q.match(/([\d.]+)?\s*([a-z]{3})\s+(?:to|in)\s+([a-z]{3})/i), 'Try "100 USD to EUR".');
-      const amt = m[1] || 1, from = m[2].toUpperCase(), to = m[3].toUpperCase();
-      const d = await getJSON(`https://api.frankfurter.app/latest?amount=${amt}&from=${from}&to=${to}`);
-      return [{ title: `${amt} ${from} = ${d.rates[to]} ${to}`, body: `Reference rates for ${d.date}`, link: 'https://www.frankfurter.app/' }];
-    } },
-
-  { id: 'usgs', name: 'USGS Earthquakes', kw: ['earthquake','earthquakes','quake','seismic','tremor'],
-    run: async () => {
-      const d = await getJSON('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&limit=5');
-      return d.features.map(f => ({ title: f.properties.title, body: new Date(f.properties.time).toLocaleString(), link: f.properties.url }));
-    } },
-
-  { id: 'artic', name: 'Art Institute of Chicago', kw: ['art','painting','paintings','artwork','artist','museum','sculpture','drawing'],
-    run: async q => {
-      const d = await getJSON(`https://api.artic.edu/api/v1/artworks/search?limit=5&fields=id,title,artist_display,date_display&q=${enc(term(q))}`);
-      return d.data.map(a => ({ title: a.title, body: [a.artist_display, a.date_display].filter(Boolean).join(' · '), link: `https://www.artic.edu/artworks/${a.id}` }));
-    } },
-
-  { id: 'openfood', name: 'Open Food Facts', kw: ['food','product','nutrition','ingredients','snack','drink','calories','barcode','brand'],
-    run: async q => {
-      const d = await getJSON(`https://world.openfoodfacts.org/cgi/search.pl?action=process&json=1&page_size=5&search_simple=1&search_terms=${enc(term(q))}`);
-      return d.products.filter(p => p.product_name).map(p => {
-        const kcal = p.nutriments && p.nutriments['energy-kcal_100g'];
-        return { title: p.product_name, body: [p.brands, kcal != null ? `${kcal} kcal/100g` : null].filter(Boolean).join(' · ') || 'No nutrition data', link: `https://world.openfoodfacts.org/product/${p.code}` };
-      });
-    } },
-
-  { id: 'datamuse', name: 'Datamuse', kw: ['synonym','synonyms','similar','thesaurus','related','crossword'],
-    run: async q => {
-      const d = await getJSON(`https://api.datamuse.com/words?max=10&ml=${enc(term(q))}`);
-      need(d.length, 'No related words found.');
-      return [{ title: term(q), body: d.map(w => w.word).join(', '), link: 'https://www.datamuse.com/api/' }];
-    } },
-
-  { id: 'jokes', name: 'Official Joke API', kw: ['joke','funny','laugh','humor','humour'],
-    run: async () => {
-      const j = await getJSON('https://official-joke-api.appspot.com/random_joke');
-      return [{ title: j.setup, body: j.punchline, link: 'https://official-joke-api.appspot.com/' }];
-    } }
-];
-
-const $ = id => document.getElementById(id);
-function el(tag, attrs = {}, ...kids) {
-  const n = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
-  n.append(...kids);
-  return n;
-}
-
-// Score each source by how many of its keywords appear in the query.
-function route(q) {
-  const t = q.toLowerCase();
-  const scored = APIS
-    .map(a => ({ a, hits: a.kw.filter(k => new RegExp(`\\b${k}\\b`).test(t)) }))
-    .filter(x => x.hits.length)
-    .sort((x, y) => y.hits.length - x.hits.length);
-  if (!scored.length) {
-    return { fallback: true, picks: [APIS.find(a => a.id === 'wikipedia'), APIS.find(a => a.id === 'hackernews')].map(a => ({ a, hits: [] })) };
-  }
-  const picks = scored.slice(0, 3);
-  if (picks.length < 2 && !picks.some(p => p.a.id === 'wikipedia')) picks.push({ a: APIS.find(a => a.id === 'wikipedia'), hits: [] });
-  return { fallback: false, picks };
-}
-
-async function search(raw) {
-  const q = raw.trim();
-  if (!q) return;
-  const { fallback, picks } = route(q);
-  const out = $('out');
-  out.replaceChildren(el('p', { class: 'routing' },
-    fallback ? 'Nothing matched directly, so we checked general sources.' : `Picked ${picks.length} of ${APIS.length} sources for this query.`));
-
-  const results = await Promise.allSettled(picks.map(p => p.a.run(q)));
-
-  results.forEach((r, i) => {
-    const { a, hits } = picks[i];
-    const failed = r.status === 'rejected';
-    const meta = el('div', { class: 'meta' });
-    if (hits.length) meta.append('Matched on ', el('b', {}, hits.join(', ')));
-    else meta.append('General fallback');
-
-    const sec = el('section', { class: 'src' + (failed ? ' fail' : '') },
-      el('h2', {}, a.name), meta);
-
-    if (failed) sec.append(el('p', { class: 'empty' }, 'Could not get results: ' + r.reason.message));
-    else if (!r.value.length) sec.append(el('p', { class: 'empty' }, 'No results.'));
-    else {
-      const ol = el('ol', { class: 'results' });
-      for (const it of r.value) {
-        const li = el('li', {}, el('a', { href: it.link, target: '_blank', rel: 'noopener' }, it.title));
-        if (it.body) li.append(el('p', {}, it.body));
-        ol.append(li);
-      }
-      sec.append(ol);
+  async function detectProxy() {
+    if (!/^https?:$/.test(location.protocol)) return false;
+    try {
+      const r = await fetch('/__keyless/status', { cache: 'no-store' });
+      if (!r.ok) return false;
+      const j = await r.json();
+      if (!j.proxy) return false;
+      K.config.proxy = '';
+      return true;
+    } catch (e) {
+      return false;
     }
-    out.append(sec);
+  }
+  const proxyReady = detectProxy();
+
+  function routingLine(plan) {
+    const parts = [];
+    parts.push(plan.fallback
+      ? 'Nothing matched directly, so general sources were queried.'
+      : ['Picked ', el('b', {}, String(plan.picks.length)), ` of ${plan.available} available sources.`]);
+    if (plan.intents.length) parts.push(` Topics: ${plan.intents.join(', ')}.`);
+    const skipped = K.config.proxy == null ? K.sources.filter(s => s.proxy).length : 0;
+    if (skipped) parts.push(` ${skipped} proxy-only sources skipped; run "node server.js" to enable them.`);
+    return el('p', { class: 'routing' }, ...parts);
+  }
+
+  function factsOf(item) {
+    if (!Array.isArray(item.facts) || !item.facts.length) return null;
+    return el('dl', { class: 'facts' }, item.facts.map(([k, v]) => el('div', {}, el('dt', {}, k), el('dd', {}, String(v)))));
+  }
+
+  function sourceCard(pick, outcome) {
+    const s = pick.source;
+    const failed = outcome.status === 'rejected';
+    const meta = el('div', { class: 'meta' },
+      pick.hits.length ? ['Matched on ', el('b', {}, pick.hits.join(', '))] : 'General fallback',
+      ' · ', el('span', { class: 'badge' + (s.proxy ? ' proxy' : '') }, s.proxy ? 'proxy' : 'direct'));
+    const sec = el('section', { class: 'src' + (failed ? ' fail' : '') }, el('h2', {}, s.name), meta);
+    if (failed) {
+      sec.append(el('p', { class: 'empty' }, 'Could not get results: ' + outcome.reason.message));
+    } else if (!outcome.value.length) {
+      sec.append(el('p', { class: 'empty' }, 'No results.'));
+    } else {
+      sec.append(el('ol', { class: 'results' }, outcome.value.map(it => el('li', {},
+        el('a', { href: it.link, target: '_blank', rel: 'noopener' }, it.title),
+        it.body ? el('p', {}, it.body) : null,
+        factsOf(it)))));
+    }
+    return sec;
+  }
+
+  async function search(raw) {
+    const q = raw.trim();
+    if (!q) return;
+    const id = ++searchId;
+    const out = $('out');
+    out.replaceChildren(el('p', { class: 'routing' }, 'Searching…'));
+    await proxyReady;
+    if (id !== searchId) return;
+
+    const plan = K.route(q);
+    out.replaceChildren(routingLine(plan));
+    const outcomes = await Promise.allSettled(
+      plan.picks.map(p => K.withTimeout(p.source.run(q), SOURCE_BUDGET_MS)));
+    if (id !== searchId) return;
+
+    const groups = new Map();
+    plan.picks.forEach((pick, i) => {
+      const key = pick.source.category;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(sourceCard(pick, outcomes[i]));
+    });
+    for (const [key, cards] of groups) {
+      out.append(el('h3', { class: 'group' }, CATEGORY_LABEL[key] || key), ...cards);
+    }
+  }
+
+  function renderChips() {
+    $('chips').replaceChildren(...EXAMPLES.map(ex => el('li', {}, el('button', { type: 'button' }, ex))));
+  }
+
+  function renderCatalog(filter) {
+    const shown = K.categories.filter(c => filter === 'all' || c.key === filter);
+    $('cat').replaceChildren(...shown.flatMap(c => {
+      const items = K.sources.filter(s => s.category === c.key);
+      return [
+        el('li', { class: 'cat-head' }, `${c.label} · ${items.length}`),
+        ...items.map(s => el('li', {},
+          el('b', {}, s.name), ' ',
+          el('span', { class: 'badge' + (s.proxy ? ' proxy' : '') }, s.proxy ? 'proxy' : 'direct'),
+          ' · e.g. ', el('span', { class: 'sample' }, s.sample || ''),
+          ' · ', el('a', { href: s.home, target: '_blank', rel: 'noopener' }, 'site'))),
+      ];
+    }));
+  }
+
+  function renderFilter() {
+    $('catFilter').replaceChildren(
+      el('option', { value: 'all' }, `All categories (${K.sources.length})`),
+      ...K.categories.map(c => el('option', { value: c.key },
+        `${c.label} (${K.sources.filter(s => s.category === c.key).length})`)));
+  }
+
+  $('total').textContent = String(K.sources.length);
+  $('summary').textContent = `${K.sources.length} free sources across ${K.categories.length} categories. No keys or sign-ups. Proxy-only sources need "node server.js".`;
+  renderFilter();
+  renderCatalog('all');
+  renderChips();
+  $('catFilter').addEventListener('change', e => renderCatalog(e.target.value));
+  $('chips').addEventListener('click', e => {
+    if (e.target.tagName !== 'BUTTON') return;
+    $('q').value = e.target.textContent;
+    search(e.target.textContent);
   });
-}
-
-// Examples as tappable starting points.
-const EXAMPLES = ['weather in Lisbon', 'define serendipity', '100 USD to EUR', 'earthquakes', 'Marie Curie', 'tell me a joke'];
-for (const ex of EXAMPLES) {
-  $('chips').append(el('li', {}, el('button', { type: 'button' }, ex)));
-}
-$('chips').addEventListener('click', e => {
-  if (e.target.tagName !== 'BUTTON') return;
-  $('q').value = e.target.textContent;
-  search(e.target.textContent);
-});
-
-// Catalog of sources in this build.
-for (const a of APIS) {
-  $('cat').append(el('li', {}, el('b', {}, a.name), ' · matches on ' + a.kw.slice(0, 5).join(', ')));
-}
-
-$('f').addEventListener('submit', e => { e.preventDefault(); search($('q').value); });
+  $('f').addEventListener('submit', e => { e.preventDefault(); search($('q').value); });
+})();
 </script>
 </body>
 </html>
