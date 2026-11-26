@@ -166,4 +166,88 @@
     body: p => p.slice(0, 200),
     link: () => 'https://hipsum.co/',
   });
+  K.register('fun', {
+    id: 'kanye-quotes', name: 'Kanye Rest (random quote)', home: 'https://kanye.rest/',
+    kw: 'kanye:3 kanye_west:3 kanye_quotes:3 kanye_rest:3',
+    sample: 'kanye quote',
+    url: () => 'https://api.kanye.rest/',
+    list: d => [d],
+    title: x => x.quote,
+    body: () => '— Kanye West',
+    link: () => 'https://kanye.rest/',
+  });
+  K.register('fun', {
+    id: 'icanhazdadjoke', name: 'icanhazdadjoke (dad jokes)', home: 'https://icanhazdadjoke.com/',
+    kw: 'dad_jokes:3 dad_joke:3 icanhazdadjoke:3 puns:2',
+    sample: 'dad joke',
+    url: () => 'https://icanhazdadjoke.com/',
+    request: () => ({ headers: { accept: 'application/json' } }),
+    list: d => [d],
+    title: x => x.joke,
+    body: () => 'Dad joke',
+    link: () => 'https://icanhazdadjoke.com/',
+  });
+  K.register('fun', {
+    id: 'taylor-swift-quotes', name: 'Taylor Swift API (lyrics)', home: 'https://taylorswiftapi.onrender.com/',
+    kw: 'taylor_swift:3 taylor_swift_lyrics:3 swift_quotes:3 taylor_lyrics:3',
+    sample: 'taylor swift lyric',
+    url: () => 'https://taylorswiftapi.onrender.com/get',
+    list: d => [d],
+    title: x => x.quote,
+    body: x => `From "${x.song || 'a Taylor Swift song'}"`,
+    link: () => 'https://taylorswiftapi.onrender.com/',
+  });
+  K.register('fun', {
+    id: 'quotable-kurokeita', name: 'Quotable (random quotes)', home: 'https://api.quotable.kurokeita.dev/',
+    kw: 'quotes_api:3 random_quotes:3 quotable:3 famous_quotes_api:2',
+    sample: 'random quote',
+    url: () => 'https://api.quotable.kurokeita.dev/api/quotes/random',
+    list: d => [d.quote || d],
+    title: x => x.content,
+    body: x => `— ${x.author || 'unknown'}`,
+    link: () => 'https://api.quotable.kurokeita.dev/',
+  });
+  K.register('fun', {
+    id: 'favqs-qotd', name: 'FavQs (quote of the day)', home: 'https://favqs.com/', proxy: true,
+    kw: 'quote_of_the_day:3 qotd:3 favqs:3 daily_quote:3',
+    sample: 'quote of the day',
+    url: () => 'https://favqs.com/api/qotd',
+    list: d => [d.quote],
+    title: x => x.body,
+    body: x => `— ${x.author || 'unknown'}`,
+    link: () => 'https://favqs.com/',
+  });
+  K.register('fun', {
+    id: 'thrones-characters', name: 'Thrones API (Game of Thrones cast)', home: 'https://thronesapi.com/',
+    kw: 'game_of_thrones_characters:3 thrones_api:3 got_cast:2 westeros_characters:3',
+    sample: 'Daenerys',
+    url: () => 'https://thronesapi.com/api/v2/Characters',
+    list: (d, q) => {
+      const s = K.term(q);
+      return (s ? d.filter(c => (c.fullName || '').toLowerCase().includes(s)) : d).slice(0, 5);
+    },
+    title: c => c.fullName,
+    body: c => c.family || c.title || '',
+    link: () => 'https://thronesapi.com/',
+  });
+  K.register('fun', {
+    id: 'rick-and-morty', name: 'Rick and Morty API (characters)', home: 'https://rickandmortyapi.com/',
+    kw: 'rick_and_morty:3 rickandmorty:3 morty_smith:2 rick_sanchez:2 rick_morty_characters:3',
+    sample: 'rick sanchez',
+    url: q => `https://rickandmortyapi.com/api/character/?name=${enc(K.term(q))}`,
+    list: 'results',
+    title: c => c.name,
+    body: c => `${c.status} · ${c.species}`,
+    link: c => c.url,
+  });
+  K.register('fun', {
+    id: 'randomuser', name: 'Random User (fake profiles)', home: 'https://randomuser.me/',
+    kw: 'random_user:3 fake_person:3 random_person:3 random_profile:3 fake_profile:2 randomuser:3',
+    sample: 'random user',
+    url: () => 'https://randomuser.me/api/',
+    list: 'results',
+    title: r => `${r.name.first} ${r.name.last}`,
+    body: r => `${r.location.city}, ${r.location.country}`,
+    link: r => r.picture.large,
+  });
 })(Keyless);

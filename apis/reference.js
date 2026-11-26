@@ -38,4 +38,74 @@
   ], {
     kw: 'encyclopedia:3 encyclopaedia:3 reference:2 facts:1',
   });
+  K.register('reference', {
+    id: 'wikipedia-fr', name: 'Wikipédia (French summary)', home: 'https://fr.wikipedia.org/',
+    kw: 'french_wikipedia:3 wikipedia_fr:3 encyclopedie_francaise:3 wikipedia_francais:3',
+    sample: 'Paris',
+    url: q => `https://fr.wikipedia.org/api/rest_v1/page/summary/${enc(K.cap(K.term(q)).replace(/ /g, '_'))}`,
+    list: d => [d],
+    title: d => d.title,
+    body: d => (d.extract || '').slice(0, 180),
+    link: d => d.content_urls?.desktop?.page,
+  });
+  K.register('reference', {
+    id: 'wikipedia-de', name: 'Wikipedia (German summary)', home: 'https://de.wikipedia.org/',
+    kw: 'german_wikipedia:3 wikipedia_de:3 deutsche_wikipedia:3',
+    sample: 'Berlin',
+    url: q => `https://de.wikipedia.org/api/rest_v1/page/summary/${enc(K.cap(K.term(q)).replace(/ /g, '_'))}`,
+    list: d => [d],
+    title: d => d.title,
+    body: d => (d.extract || '').slice(0, 180),
+    link: d => d.content_urls?.desktop?.page,
+  });
+  K.register('reference', {
+    id: 'wikipedia-es', name: 'Wikipedia (Spanish summary)', home: 'https://es.wikipedia.org/',
+    kw: 'spanish_wikipedia:3 wikipedia_es:3 wikipedia_espanol:3',
+    sample: 'Madrid',
+    url: q => `https://es.wikipedia.org/api/rest_v1/page/summary/${enc(K.cap(K.term(q)).replace(/ /g, '_'))}`,
+    list: d => [d],
+    title: d => d.title,
+    body: d => (d.extract || '').slice(0, 180),
+    link: d => d.content_urls?.desktop?.page,
+  });
+  K.register('reference', {
+    id: 'wikipedia-it', name: 'Wikipedia (Italian summary)', home: 'https://it.wikipedia.org/',
+    kw: 'italian_wikipedia:3 wikipedia_it:3',
+    sample: 'Roma',
+    url: q => `https://it.wikipedia.org/api/rest_v1/page/summary/${enc(K.cap(K.term(q)).replace(/ /g, '_'))}`,
+    list: d => [d],
+    title: d => d.title,
+    body: d => (d.extract || '').slice(0, 180),
+    link: d => d.content_urls?.desktop?.page,
+  });
+  K.register('reference', {
+    id: 'wikipedia-pt', name: 'Wikipédia (Portuguese summary)', home: 'https://pt.wikipedia.org/',
+    kw: 'portuguese_wikipedia:3 wikipedia_pt:3 wikipedia_portugues:3',
+    sample: 'Lisboa',
+    url: q => `https://pt.wikipedia.org/api/rest_v1/page/summary/${enc(K.cap(K.term(q)).replace(/ /g, '_'))}`,
+    list: d => [d],
+    title: d => d.title,
+    body: d => (d.extract || '').slice(0, 180),
+    link: d => d.content_urls?.desktop?.page,
+  });
+  K.register('reference', {
+    id: 'wikipedia-ja', name: 'Wikipedia (Japanese summary)', home: 'https://ja.wikipedia.org/',
+    kw: 'japanese_wikipedia:3 wikipedia_ja:3',
+    sample: '東京',
+    url: q => `https://ja.wikipedia.org/api/rest_v1/page/summary/${enc(K.term(q).replace(/ /g, '_'))}`,
+    list: d => [d],
+    title: d => d.title,
+    body: d => (d.extract || '').slice(0, 180),
+    link: d => d.content_urls?.desktop?.page,
+  });
+  K.register('reference', {
+    id: 'alquran', name: 'Al Quran Cloud (ayah lookup)', home: 'https://alquran.cloud/',
+    kw: 'quran:3 quran_verse:3 ayah:3 surah:3 holy_quran:3 quran_text:3',
+    sample: 'quran 1:1',
+    url: q => `https://api.alquran.cloud/v1/ayah/${enc(((q.match(/\d+\s*:\s*\d+/) || ['1:1'])[0]).replace(/\s/g, ''))}`,
+    list: d => [d.data],
+    title: x => x.text,
+    body: x => `${x.surah?.englishName || 'Quran'} ${x.surah?.number ?? ''}:${x.numberInSurah ?? ''}`,
+    link: () => 'https://alquran.cloud/',
+  });
 })(Keyless);

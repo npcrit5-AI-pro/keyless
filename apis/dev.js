@@ -158,4 +158,107 @@
     body: r => `${r.date}${r.lts ? ` · LTS ${r.lts}` : ''}`,
     link: () => 'https://nodejs.org/en/download',
   });
+  K.register('dev', {
+    id: 'npms-search', name: 'npms.io (npm package search)', home: 'https://npms.io/',
+    kw: 'npm_search:3 npms:3 npm_packages_search:3 node_packages:3 javascript_packages:2',
+    sample: 'react router',
+    url: q => `https://api.npms.io/v2/search?q=${enc(K.term(q))}&size=5`,
+    list: 'results',
+    title: r => `${r.package.name}@${r.package.version}`,
+    body: r => r.package.description || '',
+    link: r => r.package.links?.npm || 'https://npms.io/',
+  });
+  K.register('dev', {
+    id: 'cdnjs-libraries', name: 'cdnjs (JavaScript libraries)', home: 'https://cdnjs.com/',
+    kw: 'cdn_libraries:3 cdnjs:3 javascript_cdn:3 cdn_search:3 frontend_libraries:2',
+    sample: 'jquery',
+    url: q => `https://api.cdnjs.com/libraries?search=${enc(K.term(q))}&limit=5&fields=description,version`,
+    list: 'results',
+    title: l => l.name,
+    body: l => `${l.version || ''} · ${l.description || ''}`,
+    link: l => `https://cdnjs.com/libraries/${l.name}`,
+  });
+  K.register('dev', {
+    id: 'hex-packages', name: 'Hex.pm (Elixir and Erlang packages)', home: 'https://hex.pm/',
+    kw: 'hex_pm:3 elixir_packages:3 hex_packages:3 erlang_packages:2 phoenix_packages:2 hexpm:3',
+    sample: 'phoenix',
+    url: q => `https://hex.pm/api/packages?search=${enc(K.term(q))}`,
+    list: d => d,
+    title: p => `${p.name} ${p.latest_stable_version || p.latest_version || ''}`,
+    body: p => p.meta?.description || '',
+    link: p => p.html_url,
+  });
+  K.register('dev', {
+    id: 'rubygems-search', name: 'RubyGems (gem search)', home: 'https://rubygems.org/', proxy: true,
+    kw: 'ruby_gems:3 rubygems:3 gems_search:3 ruby_packages:3 rails_gems:2',
+    sample: 'rails',
+    url: q => `https://rubygems.org/api/v1/search.json?query=${enc(K.term(q))}`,
+    list: d => d,
+    title: g => `${g.name} ${g.version}`,
+    body: g => g.info || '',
+    link: g => g.project_uri,
+  });
+  K.register('dev', {
+    id: 'maven-central', name: 'Maven Central (Java libraries)', home: 'https://central.sonatype.com/', proxy: true,
+    kw: 'maven:3 maven_central:3 java_libraries:3 jvm_packages:2 gradle:2 jar_search:2',
+    sample: 'junit',
+    url: q => `https://search.maven.org/solrsearch/select?q=${enc(K.term(q))}&rows=5&wt=json`,
+    list: 'response.docs',
+    title: d => `${d.g}:${d.a}`,
+    body: d => `latest ${d.latestVersion || ''}`,
+    link: d => `https://central.sonatype.com/artifact/${d.g}/${d.a}`,
+  });
+  K.register('dev', {
+    id: 'docker-hub', name: 'Docker Hub (image search)', home: 'https://hub.docker.com/', proxy: true,
+    kw: 'docker_images:3 docker_hub:3 container_images:3 dockerhub:3 docker_containers:2',
+    sample: 'nginx',
+    url: q => `https://hub.docker.com/v2/search/repositories/?query=${enc(K.term(q))}&page_size=5`,
+    list: 'results',
+    title: r => r.repo_name,
+    body: r => `${r.star_count ?? 0} stars · ${r.short_description || ''}`,
+    link: r => `https://hub.docker.com/r/${r.repo_name}`,
+  });
+  K.register('dev', {
+    id: 'huggingface-models', name: 'Hugging Face (model search)', home: 'https://huggingface.co/',
+    kw: 'huggingface:3 hugging_face:3 ai_models:3 ml_models:3 transformers_models:2 hf_models:2',
+    sample: 'bert',
+    url: q => `https://huggingface.co/api/models?search=${enc(K.term(q))}&limit=5`,
+    list: d => d,
+    title: m => m.id,
+    body: m => `${m.pipeline_tag || 'model'} · ${m.downloads ?? 0} downloads`,
+    link: m => `https://huggingface.co/${m.id}`,
+  });
+  K.register('dev', {
+    id: 'devto-articles', name: 'DEV Community (articles)', home: 'https://dev.to/',
+    kw: 'devto:3 dev_to:3 developer_articles:3 dev_blog_posts:2 programming_articles:3 dev_community:2',
+    sample: 'javascript',
+    url: q => {
+      const tag = K.term(q).split(' ')[0];
+      return `https://dev.to/api/articles?per_page=5${tag ? `&tag=${enc(tag)}` : ''}`;
+    },
+    list: d => d,
+    title: a => a.title,
+    body: a => `${a.user?.name || ''} · ${a.positive_reactions_count ?? 0} reactions`,
+    link: a => a.url,
+  });
+  K.register('dev', {
+    id: 'npm-downloads', name: 'npm downloads (weekly counts)', home: 'https://api.npmjs.org/',
+    kw: 'npm_downloads:3 download_stats:2 npm_popularity:2 package_downloads:3',
+    sample: 'react',
+    url: q => `https://api.npmjs.org/downloads/point/last-week/${enc(K.term(q).split(' ')[0] || 'react')}`,
+    list: d => [d],
+    title: d => `${d.package} downloads (last week)`,
+    body: d => `${(d.downloads || 0).toLocaleString()} downloads`,
+    link: d => `https://www.npmjs.com/package/${d.package}`,
+  });
+  K.register('dev', {
+    id: 'jsonplaceholder', name: 'JSONPlaceholder (fake REST posts)', home: 'https://jsonplaceholder.typicode.com/',
+    kw: 'jsonplaceholder:3 fake_api:3 mock_posts:3 test_api:3 dummy_posts:2 json_placeholder:3',
+    sample: 'jsonplaceholder',
+    url: () => 'https://jsonplaceholder.typicode.com/posts?_limit=5',
+    list: d => d,
+    title: p => p.title,
+    body: p => `post #${p.id} · user ${p.userId}`,
+    link: p => `https://jsonplaceholder.typicode.com/posts/${p.id}`,
+  });
 })(Keyless);

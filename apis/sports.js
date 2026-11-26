@@ -86,4 +86,14 @@
   ], {
     kw: 'sports:3 sport:2 match:1 league:2 team:1 teams:1 tournament:2 playoffs:2 olympics:2',
   });
+  K.register('sports', {
+    id: 'openligadb-bundesliga', name: 'OpenLigaDB (Bundesliga matches)', home: 'https://www.openligadb.de/',
+    kw: 'bundesliga:3 german_football:3 openligadb:3 fussball:2 german_soccer:3 bundesliga_matches:3',
+    sample: 'bundesliga',
+    url: () => 'https://api.openligadb.de/getmatchdata/bl1',
+    list: d => d,
+    title: m => `${m.team1?.teamName} vs ${m.team2?.teamName}`,
+    body: m => `${(m.matchDateTime || '').slice(0, 10)} · ${m.matchIsFinished ? 'full time' : 'scheduled'}`,
+    link: () => 'https://www.openligadb.de/',
+  });
 })(Keyless);

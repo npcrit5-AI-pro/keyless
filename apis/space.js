@@ -116,4 +116,24 @@
   ], {
     kw: 'space:2 astronomy:3 cosmos:2 universe:2 planet:1 planets:1 mars:1 moon:1',
   });
+  K.register('space', {
+    id: 'jpl-fireballs', name: 'NASA JPL fireball events', home: 'https://cneos.jpl.nasa.gov/fireballs/', proxy: true,
+    kw: 'fireballs:3 bolides:3 meteors:3 meteor_fireballs:3 jpl_fireball:3 cneos:3 meteor_events:2',
+    sample: 'fireballs',
+    url: () => 'https://ssd-api.jpl.nasa.gov/fireball.api?limit=5',
+    list: d => d.data.map(r => Object.fromEntries(d.fields.map((f, i) => [f, r[i]]))),
+    title: f => `Fireball ${f.date}`,
+    body: f => `Energy ${f.energy} · impact energy ${f['impact-e']}`,
+    link: () => 'https://cneos.jpl.nasa.gov/fireballs/',
+  });
+  K.register('space', {
+    id: 'jpl-sentry', name: 'NASA JPL Sentry (impact risk)', home: 'https://cneos.jpl.nasa.gov/sentry/', proxy: true,
+    kw: 'near_earth_asteroids:3 asteroid_impact:3 sentry_risk:3 impact_risk:3 neo_risk:3 jpl_sentry:3',
+    sample: 'asteroid risk',
+    url: () => 'https://ssd-api.jpl.nasa.gov/sentry.api',
+    list: d => (d.data || []).map(r => (Array.isArray(r) ? Object.fromEntries(d.fields.map((f, i) => [f, r[i]])) : r)).slice(0, 5),
+    title: x => `Object ${x.des || x.fullname || '?'}`,
+    body: x => `Impact probability ${x.ip ?? 'n/a'}`,
+    link: () => 'https://cneos.jpl.nasa.gov/sentry/',
+  });
 })(Keyless);

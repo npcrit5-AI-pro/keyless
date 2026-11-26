@@ -83,4 +83,14 @@
     body: d => `${d.latitude}, ${d.longitude}`,
     link: () => 'https://geolocation-db.com/',
   });
+  K.register('internet', {
+    id: 'wayback-cdx', name: 'Wayback Machine (snapshots)', home: 'https://web.archive.org/', proxy: true,
+    kw: 'wayback_machine:3 web_archive_snapshots:3 internet_archive:3 archived_pages:3 website_history:2 wayback:3',
+    sample: 'example.com',
+    url: q => `https://web.archive.org/cdx/search/cdx?url=${enc(K.term(q))}&output=json&limit=6`,
+    list: d => d.slice(1),
+    title: r => r[2],
+    body: r => `captured ${String(r[1]).slice(0, 8)} · HTTP ${r[4]}`,
+    link: r => `https://web.archive.org/web/${r[1]}/${r[2]}`,
+  });
 })(Keyless);

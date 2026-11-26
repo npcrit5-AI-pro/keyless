@@ -81,4 +81,24 @@
   ], {
     kw: 'language:1 words:1 dictionary:2 word:1',
   });
+  K.register('language', {
+    id: 'tatoeba', name: 'Tatoeba (example sentences)', home: 'https://tatoeba.org/', proxy: true,
+    kw: 'example_sentences:3 sentence_examples:3 tatoeba:3 usage_examples:3 sentence_translation:2 translations_examples:2',
+    sample: 'hello',
+    url: q => `https://tatoeba.org/en/api_v0/search?from=eng&query=${enc(K.term(q))}`,
+    list: 'results',
+    title: r => r.text,
+    body: r => `${r.lang || ''} · ${r.user?.username || ''}`,
+    link: r => `https://tatoeba.org/en/sentences/show/${r.id}`,
+  });
+  K.register('language', {
+    id: 'languagetool-languages', name: 'LanguageTool (supported languages)', home: 'https://languagetool.org/',
+    kw: 'grammar_languages:3 spell_check_languages:3 languagetool_languages:3 supported_languages:2 language_codes:3',
+    sample: 'grammar languages',
+    url: () => 'https://api.languagetool.org/v2/languages',
+    list: d => d,
+    title: l => l.name,
+    body: l => `code ${l.code} · ${l.longCode || ''}`,
+    link: () => 'https://languagetool.org/',
+  });
 })(Keyless);

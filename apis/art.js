@@ -32,4 +32,14 @@
   ], {
     kw: 'museum:2 exhibition:2 exhibit:1',
   });
+  K.register('art', {
+    id: 'smk-art', name: 'SMK (Statens Museum for Kunst)', home: 'https://open.smk.dk/',
+    kw: 'danish_art:3 smk:3 statens_museum:3 danish_museum:3 smk_art:3',
+    sample: 'rembrandt',
+    url: q => `https://api.smk.dk/api/v1/art/search/?keys=${enc(K.term(q))}&rows=5`,
+    list: 'items',
+    title: i => i.titles?.[0]?.title,
+    body: i => `${i.artist?.[0]?.name || 'unknown artist'} · ${i.production?.[0]?.date_text || ''}`,
+    link: i => `https://open.smk.dk/artwork/image/${i.object_number}`,
+  });
 })(Keyless);

@@ -56,4 +56,44 @@
   ], {
     kw: 'animal:2 animals:2 pet:2 pets:2 zoo:1',
   });
+  K.register('animals', {
+    id: 'randomfox', name: 'RandomFox (fox pictures)', home: 'https://randomfox.ca/',
+    kw: 'fox:3 foxes:3 fox_pictures:3 random_fox:3 randomfox:3 fox_images:2',
+    sample: 'random fox',
+    url: () => 'https://randomfox.ca/floof/',
+    list: d => [d],
+    title: () => 'Random fox picture',
+    body: d => d.image,
+    link: d => d.link || d.image,
+  });
+  K.register('animals', {
+    id: 'cataas', name: 'Cat as a Service (cat pictures)', home: 'https://cataas.com/',
+    kw: 'cat_pictures:3 cat_images:3 cataas:3 random_cat:2 cat_photos:2',
+    sample: 'cat pictures',
+    url: () => 'https://cataas.com/api/cats?limit=5',
+    list: d => d,
+    title: c => `Cat picture ${String(c.id).slice(0, 8)}`,
+    body: c => (c.tags || []).join(', ') || 'cat picture',
+    link: c => `https://cataas.com/cat/${c.id}`,
+  });
+  K.register('animals', {
+    id: 'thecatapi-images', name: 'The Cat API (images)', home: 'https://thecatapi.com/',
+    kw: 'thecatapi:3 cat_api:3 random_cat_images:3 cat_image_api:3',
+    sample: 'cat api',
+    url: () => 'https://api.thecatapi.com/v1/images/search?limit=5',
+    list: d => d,
+    title: c => `Cat image ${c.id}`,
+    body: c => `${c.width}×${c.height}px`,
+    link: c => c.url,
+  });
+  K.register('animals', {
+    id: 'dog-breeds', name: 'Dog CEO (breed list)', home: 'https://dog.ceo/dog-api/',
+    kw: 'dog_breeds:3 dog_breed_list:3 breeds_of_dogs:3 dog_types:2 breed_list:2',
+    sample: 'dog breeds',
+    url: () => 'https://dog.ceo/api/breeds/list/all',
+    list: d => Object.keys(d.message).map(breed => ({ breed, subs: d.message[breed] })),
+    title: x => K.cap(x.breed),
+    body: x => (x.subs.length ? `Sub-breeds: ${x.subs.join(', ')}` : 'No sub-breeds'),
+    link: () => 'https://dog.ceo/dog-api/documentation/',
+  });
 })(Keyless);

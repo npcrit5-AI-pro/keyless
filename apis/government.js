@@ -145,4 +145,84 @@
       return rows.map(r => ({ title: `Germany inflation · ${r.name}`, body: `${r.v}% year on year (HICP)`, link: 'https://ec.europa.eu/eurostat' }));
     },
   });
+  K.register('government', {
+    id: 'opendatasoft-catalog', name: 'OpenDataSoft public catalog', home: 'https://public.opendatasoft.com/',
+    kw: 'open_data:3 open_datasets:3 opendatasoft:3 public_datasets:2 city_open_data:2',
+    sample: 'open data',
+    url: q => `https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets?limit=5&q=${enc(K.term(q))}`,
+    list: 'results',
+    title: r => r.metas?.default?.title || r.metas?.title || r.dataset_id,
+    body: r => (r.metas?.default?.description || '').replace(/<[^>]+>/g, '').slice(0, 140),
+    link: r => `https://public.opendatasoft.com/explore/dataset/${r.dataset_id}/`,
+  });
+  K.register('government', {
+    id: 'data-gouv-fr', name: 'data.gouv.fr (French open data)', home: 'https://www.data.gouv.fr/',
+    kw: 'france_data:3 data_gouv:3 datagouv:3 french_open_data:3 open_data_france:3 datasets_france:2',
+    sample: 'france datasets',
+    url: q => `https://www.data.gouv.fr/api/1/datasets/?q=${enc(K.term(q))}&page_size=5`,
+    list: 'data',
+    title: d => d.title,
+    body: d => d.organization?.name || 'data.gouv.fr dataset',
+    link: d => d.page,
+  });
+  K.register('government', {
+    id: 'ibge-states', name: 'IBGE (Brazilian states)', home: 'https://www.ibge.gov.br/',
+    kw: 'brazil_states:3 brazilian_states:3 ibge:3 estados_brasil:3 brazil_regions:2',
+    sample: 'brazil states',
+    url: () => 'https://servicodados.ibge.gov.br/api/v1/localidades/estados',
+    list: d => d,
+    title: s => s.nome,
+    body: s => `${s.sigla} · ${s.regiao?.nome || ''}`,
+    link: () => 'https://www.ibge.gov.br/',
+  });
+  K.register('government', {
+    id: 'austin-311', name: 'Austin 311 service requests', home: 'https://311.austintexas.gov/',
+    kw: 'austin_311:3 service_requests_austin:3 austin_complaints:3 austin_311_requests:3',
+    sample: 'austin 311',
+    url: () => 'https://data.austintexas.gov/resource/xwdj-i9he.json?%24limit=5&%24order=sr_created_date%20DESC',
+    list: d => d,
+    title: r => r.sr_type_desc,
+    body: r => `${r.sr_status_desc || ''} · ${(r.sr_created_date || '').slice(0, 10)} · ${r.sr_location || ''}`,
+    link: () => 'https://311.austintexas.gov/',
+  });
+  K.register('government', {
+    id: 'sfgov-incidents', name: 'San Francisco police incidents', home: 'https://data.sfgov.org/',
+    kw: 'sf_incidents:3 sfpd:3 san_francisco_police:3 sf_police_reports:3 sf_crime_reports:3',
+    sample: 'sfpd incidents',
+    url: () => 'https://data.sfgov.org/resource/wg3w-h783.json?%24limit=5&%24order=incident_datetime%20DESC',
+    list: d => d,
+    title: r => r.incident_description || r.incident_category,
+    body: r => `${r.incident_category || ''} · ${(r.incident_datetime || '').slice(0, 10)} · ${r.police_district || ''}`,
+    link: () => 'https://data.sfgov.org/',
+  });
+  K.register('government', {
+    id: 'lacity-crime', name: 'LAPD crime records', home: 'https://data.lacity.org/',
+    kw: 'lapd:3 la_crime:3 lacity_crime:3 lapd_reports:3 crime_records_la:2',
+    sample: 'lapd crime',
+    url: () => 'https://data.lacity.org/resource/2nrs-mtv8.json?%24limit=5&%24order=date_occ%20DESC',
+    list: d => d,
+    title: r => r.crm_cd_desc,
+    body: r => `${r.area_name || ''} · ${(r.date_occ || '').slice(0, 10)}`,
+    link: () => 'https://data.lacity.org/',
+  });
+  K.register('government', {
+    id: 'nyc-collisions', name: 'NYC motor vehicle collisions', home: 'https://data.cityofnewyork.us/',
+    kw: 'motor_vehicle_collisions:3 traffic_collisions:3 car_crashes:3 crash_data:2 traffic_accidents:3',
+    sample: 'traffic collisions',
+    url: () => 'https://data.cityofnewyork.us/resource/h9gi-nx95.json?%24limit=5&%24order=crash_date%20DESC',
+    list: d => d,
+    title: r => `Collision in ${r.borough || 'NYC'} · ${r.number_of_persons_injured ?? 0} injured`,
+    body: r => `${(r.crash_date || '').slice(0, 10)} ${r.crash_time || ''} · ${r.off_street_name || ''}`,
+    link: () => 'https://data.cityofnewyork.us/',
+  });
+  K.register('government', {
+    id: 'propublica-nonprofits', name: 'ProPublica Nonprofit Explorer', home: 'https://projects.propublica.org/nonprofits/', proxy: true,
+    kw: 'nonprofit:3 nonprofits:3 charity:3 charities:3 tax_exempt:2 form_990:2 nonprofit_search:3',
+    sample: 'red cross',
+    url: q => `https://projects.propublica.org/nonprofits/api/v2/search.json?q=${enc(K.term(q))}`,
+    list: 'organizations',
+    title: o => o.name,
+    body: o => `${o.city || ''}${o.state ? ', ' + o.state : ''} · EIN ${o.ein}`,
+    link: o => `https://projects.propublica.org/nonprofits/organizations/${o.ein}`,
+  });
 })(Keyless);

@@ -44,4 +44,24 @@
   ], {
     kw: 'library:1 reading:1',
   });
+  K.register('books', {
+    id: 'openlibrary-authors', name: 'Open Library (authors)', home: 'https://openlibrary.org/',
+    kw: 'author_search:3 book_authors:3 authors:2 writer:2 bibliography:2 openlibrary_authors:3',
+    sample: 'tolkien authors',
+    url: q => `https://openlibrary.org/search/authors.json?q=${enc(K.term(q))}&limit=5`,
+    list: 'docs',
+    title: a => a.name,
+    body: a => `${a.work_count ?? 0} works${a.top_work ? ' · ' + a.top_work : ''}`,
+    link: a => `https://openlibrary.org/authors/${a.key}`,
+  });
+  K.register('books', {
+    id: 'mangadex', name: 'MangaDex (manga titles)', home: 'https://mangadex.org/', proxy: true,
+    kw: 'manga:3 mangadex:3 manga_titles:3 japanese_comics:2 manga_series:3',
+    sample: 'naruto manga',
+    url: q => `https://api.mangadex.org/manga?title=${enc(K.term(q))}&limit=5`,
+    list: 'data',
+    title: m => m.attributes?.title?.en || Object.values(m.attributes?.title || {})[0],
+    body: m => `${m.attributes?.status || ''} · ${m.attributes?.year || ''}`,
+    link: m => `https://mangadex.org/title/${m.id}`,
+  });
 })(Keyless);

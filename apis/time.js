@@ -53,4 +53,40 @@
     body: () => 'Hebrew calendar date for today',
     link: () => 'https://www.hebcal.com/',
   });
+  K.register('time', {
+    id: 'aladhan', name: 'Aladhan (prayer times)', home: 'https://aladhan.com/prayer-times-api',
+    kw: 'prayer_times:3 salah:3 namaz:3 adhan:3 islamic_prayer:3 iftar:2',
+    sample: 'prayer times London',
+    run: async q => {
+      const p = await K.geocode(K.term(q).replace(/\b(prayer|times?)\b/gi, '').trim());
+      const d = await K.http(`https://api.aladhan.com/v1/timings?latitude=${p.latitude}&longitude=${p.longitude}&method=2`);
+      const t = d.data.timings;
+      return ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'].map(n => ({
+        title: `${n} · ${t[n]} local time`,
+        body: `${p.name} prayer times (Muslim World League)`,
+        link: 'https://aladhan.com/prayer-times-api',
+        facts: [['Time', t[n]]],
+      }));
+    },
+  });
+  K.register('time', {
+    id: 'kayaposoft-holidays', name: 'Kayaposoft (public holidays)', home: 'https://kayaposoft.com/enrico/',
+    kw: 'public_holidays:3 holidays_usa:3 national_holidays:3 kayaposoft:3 holiday_list:2',
+    sample: 'usa holidays',
+    url: () => 'https://kayaposoft.com/enrico/json/v2.0/?action=getHolidaysForYear&year=2026&country=usa&holidayType=public_holiday',
+    list: d => d,
+    title: h => h.name?.[0]?.text,
+    body: h => `${h.date.year}-${String(h.date.month).padStart(2, '0')}-${String(h.date.day).padStart(2, '0')}`,
+    link: () => 'https://kayaposoft.com/enrico/',
+  });
+  K.register('time', {
+    id: 'openholidays', name: 'OpenHolidays (country holidays)', home: 'https://www.openholidaysapi.org/',
+    kw: 'school_holidays:3 public_holidays_europe:3 openholidays:3 holiday_calendar:2',
+    sample: 'countries',
+    url: () => 'https://openholidaysapi.org/Countries',
+    list: d => d,
+    title: c => c.name?.[0]?.text,
+    body: c => `ISO ${c.isoCode} · official languages ${(c.officialLanguages || []).join(', ')}`,
+    link: () => 'https://www.openholidaysapi.org/',
+  });
 })(Keyless);

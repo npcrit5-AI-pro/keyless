@@ -92,4 +92,14 @@
     body: e => `Muscles: ${(e.muscles || []).map(m => m.name_en || m.name).join(', ') || 'n/a'}`,
     link: e => `https://wger.de/en/exercise/${e.id}`,
   });
+  K.register('health', {
+    id: 'clinicaltables-conditions', name: 'NLM Clinical Tables (conditions)', home: 'https://clinicaltables.nlm.nih.gov/',
+    kw: 'medical_conditions:3 disease_names:3 icd_conditions:3 conditions_list:3 nlm_conditions:2 diagnosis_codes:2',
+    sample: 'diabetes',
+    url: q => `https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?terms=${enc(K.term(q))}&maxList=5`,
+    list: d => d[3] || [],
+    title: x => (Array.isArray(x) ? x[0] : x),
+    body: () => 'Condition name (NLM Clinical Tables)',
+    link: () => 'https://clinicaltables.nlm.nih.gov/',
+  });
 })(Keyless);

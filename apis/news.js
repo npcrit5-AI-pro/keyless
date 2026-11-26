@@ -23,4 +23,19 @@
       link: x => x.url || x.comments_url,
     },
   ]);
+  K.register('news', {
+    id: 'hn-firebase-top', name: 'Hacker News (Firebase top stories)', home: 'https://news.ycombinator.com/',
+    kw: 'hacker_news_top:3 hn_top:3 hackernews_stories:3 top_stories:2 hacker_news_firebase:3',
+    sample: 'top stories',
+    run: async () => {
+      const ids = (await K.http('https://hacker-news.firebaseio.com/v0/topstories.json')).slice(0, 5);
+      const items = await Promise.all(ids.map(id => K.http(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)));
+      return items.filter(Boolean).map(i => ({
+        title: i.title,
+        body: `${i.score ?? 0} points · ${i.by || 'anon'} · ${i.descendants ?? 0} comments`,
+        link: i.url || `https://news.ycombinator.com/item?id=${i.id}`,
+        facts: [['Score', String(i.score ?? 0)]],
+      }));
+    },
+  });
 })(Keyless);

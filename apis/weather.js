@@ -149,4 +149,40 @@
   ], {
     kw: 'weather:3 forecast:2 climate:2 meteorology:2',
   });
+  K.register('weather', {
+    id: 'ipma-forecast', name: 'IPMA (Portugal daily forecast)', home: 'https://www.ipma.pt/',
+    kw: 'portugal_weather:3 ipma:3 portuguese_forecast:2 portugal_forecast:3',
+    sample: 'portugal forecast',
+    url: () => 'https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json',
+    list: 'data',
+    title: d => `${d.forecastDate}`,
+    body: d => `Min ${d.tMin}°C · Max ${d.tMax}°C · rain ${d.precipitaProb}%`,
+    link: () => 'https://www.ipma.pt/',
+  });
+  K.register('weather', {
+    id: 'brightsky-dwd', name: 'Bright Sky (DWD, Germany)', home: 'https://brightsky.dev/',
+    kw: 'germany_weather:3 german_weather:3 dwd:3 brightsky:3 deutscher_wetterdienst:2',
+    sample: 'weather Berlin',
+    run: async q => {
+      const p = await K.geocode(K.term(q));
+      const d = await K.http(`https://api.brightsky.dev/current_weather?lat=${p.latitude}&lon=${p.longitude}`);
+      const w = K.need(d.weather, 'No DWD observation nearby.');
+      return [{
+        title: `${p.name} · ${w.condition || 'current'} · ${w.temperature}°C`,
+        body: `Wind ${w.wind_speed_10 ?? 'n/a'} km/h · DWD station data`,
+        link: 'https://brightsky.dev/',
+        facts: [['Temp', `${w.temperature}°C`], ['Wind', `${w.wind_speed_10 ?? 'n/a'} km/h`]],
+      }];
+    },
+  });
+  K.register('weather', {
+    id: 'aviation-metar', name: 'Aviation Weather METAR', home: 'https://aviationweather.gov/', proxy: true,
+    kw: 'metar:3 taf:2 airport_weather:3 aviation_weather:3 airport_metar:3 flight_weather:2',
+    sample: 'metar KJFK',
+    url: q => `https://aviationweather.gov/api/data/metar?ids=${enc((K.term(q).match(/[a-z]{4}/) || ['kjfk'])[0].toUpperCase())}&format=json`,
+    list: d => d,
+    title: m => `${m.icaoId} · ${m.name || 'airport'}`,
+    body: m => m.rawOb || 'METAR observation',
+    link: () => 'https://aviationweather.gov/',
+  });
 })(Keyless);

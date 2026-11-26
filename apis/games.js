@@ -98,4 +98,104 @@
     body: g => (g.released ? `Released ${g.released}` : 'speedrun.com game'),
     link: g => g.weblink,
   });
+  K.register('games', {
+    id: 'gamerpower', name: 'GamerPower (free game giveaways)', home: 'https://www.gamerpower.com/',
+    kw: 'game_giveaways:3 free_games:3 gamerpower:3 free_game_giveaway:3 steam_giveaway:2 epic_free_games:2',
+    sample: 'free games',
+    url: () => 'https://www.gamerpower.com/api/giveaways',
+    list: d => d,
+    title: g => g.title,
+    body: g => `${g.worth} · ${g.platforms || ''}`,
+    link: g => g.open_giveaway_url || g.gamerpower_url,
+  });
+  K.register('games', {
+    id: 'fortnite-news', name: 'Fortnite-API (news)', home: 'https://fortnite-api.com/',
+    kw: 'fortnite:3 fortnite_news:3 battle_royale:2 epic_games_news:2 fortnite_updates:3',
+    sample: 'fortnite news',
+    url: () => 'https://fortnite-api.com/v2/news',
+    list: 'data.br.motds',
+    title: m => m.title,
+    body: m => (m.body || '').slice(0, 140),
+    link: () => 'https://www.fortnite.com/news',
+  });
+  K.register('games', {
+    id: 'eldenring-bosses', name: 'Elden Ring API (bosses)', home: 'https://eldenring.fanapis.com/',
+    kw: 'elden_ring:3 eldenring:3 elden_ring_bosses:3 soulslike_bosses:2 fromsoftware_games:2',
+    sample: 'elden ring bosses',
+    url: () => 'https://eldenring.fanapis.com/api/bosses?limit=5',
+    list: 'data',
+    title: b => b.name,
+    body: b => b.location || 'Elden Ring boss',
+    link: () => 'https://eldenring.fanapis.com/',
+  });
+  K.register('games', {
+    id: 'steam-store', name: 'Steam store search', home: 'https://store.steampowered.com/', proxy: true,
+    kw: 'steam:3 steam_games:3 steam_store:3 valve_games:2 pc_games:2 steam_prices:3',
+    sample: 'portal',
+    url: q => `https://store.steampowered.com/api/storesearch/?term=${enc(K.term(q))}&cc=us&l=en`,
+    list: 'items',
+    title: i => i.name,
+    body: i => (i.price ? `$${(i.price.final / 100).toFixed(2)} · Steam app ${i.id}` : `Steam app ${i.id}`),
+    link: i => `https://store.steampowered.com/app/${i.id}`,
+  });
+  K.register('games', {
+    id: 'mojang-profile', name: 'Mojang (Minecraft username lookup)', home: 'https://api.mojang.com/', proxy: true,
+    kw: 'minecraft:3 minecraft_username:3 mojang:3 minecraft_uuid:3 minecraft_player:2',
+    sample: 'Notch',
+    url: q => `https://api.mojang.com/users/profiles/minecraft/${enc(K.term(q).split(' ')[0] || 'Notch')}`,
+    list: d => [d],
+    title: d => d.name,
+    body: d => `UUID ${d.id}`,
+    link: d => `https://namemc.com/profile/${d.name}`,
+  });
+  K.register('games', {
+    id: 'opendota-heroes', name: 'OpenDota (Dota 2 heroes)', home: 'https://www.opendota.com/',
+    kw: 'dota:3 dota_2:3 dota_heroes:3 opendota:3 moba:2 dota_hero:3',
+    sample: 'dota heroes',
+    url: () => 'https://api.opendota.com/api/heroes',
+    list: d => d,
+    title: h => h.localized_name,
+    body: h => `${(h.primary_attr || '').toUpperCase()} · roles: ${(h.roles || []).slice(0, 3).join(', ')}`,
+    link: () => 'https://www.opendota.com/heroes',
+  });
+  K.register('games', {
+    id: 'scryfall-cards', name: 'Scryfall (Magic: The Gathering cards)', home: 'https://scryfall.com/',
+    kw: 'magic_the_gathering:3 mtg:3 scryfall:3 mtg_cards:3 magic_card:3 mtg_card:3',
+    sample: 'lightning bolt',
+    url: q => `https://api.scryfall.com/cards/named?fuzzy=${enc(K.term(q))}`,
+    list: d => [d],
+    title: c => c.name,
+    body: c => `${c.type_line || ''}${c.mana_cost ? ' · ' + c.mana_cost : ''}`,
+    link: c => c.scryfall_uri,
+  });
+  K.register('games', {
+    id: 'pokemontcg', name: 'Pokémon TCG (cards)', home: 'https://pokemontcg.io/',
+    kw: 'pokemontcg:3 tcg:3 trading_card_game:3 tcg_cards:3',
+    sample: 'pikachu',
+    url: q => `https://api.pokemontcg.io/v2/cards?q=name:${enc(K.term(q))}&pageSize=5`,
+    list: 'data',
+    title: c => c.name,
+    body: c => `${c.set?.name || ''} · ${c.rarity || ''}`,
+    link: c => c.images?.small || 'https://pokemontcg.io/',
+  });
+  K.register('games', {
+    id: 'lichess-user', name: 'Lichess (player profile)', home: 'https://lichess.org/',
+    kw: 'lichess:3 chess_player:3 chess_rating:3 chess_games:3 online_chess:2',
+    sample: 'DrNykterstein',
+    url: q => `https://lichess.org/api/user/${enc(K.term(q).split(' ')[0] || 'DrNykterstein')}`,
+    list: d => [d],
+    title: u => u.username,
+    body: u => `Blitz ${u.perfs?.blitz?.rating ?? 'n/a'} · ${u.count?.all ?? 0} games`,
+    link: u => u.url,
+  });
+  K.register('games', {
+    id: 'chesscom-player', name: 'Chess.com (player profile)', home: 'https://www.chess.com/',
+    kw: 'chess_com:3 chesscom:3 chess_players:2 chess_profile:2',
+    sample: 'hikaru',
+    url: q => `https://api.chess.com/pub/player/${enc(K.term(q).split(' ')[0] || 'hikaru')}`,
+    list: d => [d],
+    title: u => u.username,
+    body: u => `${u.title || 'Player'} · ${(u.country || '').split('/').pop()}`,
+    link: u => u.url,
+  });
 })(Keyless);

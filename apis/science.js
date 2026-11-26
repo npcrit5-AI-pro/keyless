@@ -145,4 +145,70 @@
     body: w => w.workType?.label || '',
     link: w => `https://wellcomecollection.org/works/${w.id}`,
   });
+  K.register('science', {
+    id: 'biorxiv', name: 'bioRxiv (recent preprints)', home: 'https://www.biorxiv.org/',
+    kw: 'biorxiv:3 preprints:3 preprint:3 bioarxiv:2 biology_preprints:3 recent_preprints:2',
+    sample: 'recent preprints',
+    url: () => {
+      const day = n => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10);
+      return `https://api.biorxiv.org/details/biorxiv/${day(7)}/${day(0)}/0`;
+    },
+    list: 'collection',
+    title: c => c.title,
+    body: c => `${(c.authors || '').split(';')[0]} · ${c.date}`,
+    link: c => `https://doi.org/${c.doi}`,
+  });
+  K.register('science', {
+    id: 'interpro', name: 'InterPro (protein families)', home: 'https://www.ebi.ac.uk/interpro/',
+    kw: 'interpro:3 protein_domains:3 protein_families:3 protein_motifs:3 protein_signatures:2',
+    sample: 'kinase',
+    url: q => `https://www.ebi.ac.uk/interpro/api/entry/interpro/?search=${enc(K.term(q))}&page_size=5`,
+    list: 'results',
+    title: r => r.metadata.name,
+    body: r => `${r.metadata.type} · ${r.metadata.accession}`,
+    link: r => `https://www.ebi.ac.uk/interpro/entry/InterPro/${r.metadata.accession}/`,
+  });
+  K.register('science', {
+    id: 'openaire', name: 'OpenAIRE (research outputs)', home: 'https://explore.openaire.eu/',
+    kw: 'openaire:3 open_access_research:3 european_research_outputs:3 research_outputs:2 eu_publications:2',
+    sample: 'climate research',
+    url: q => `https://api.openaire.eu/search/publications?title=${enc(K.term(q))}&format=json&size=5`,
+    list: d => d.response?.results?.result || [],
+    title: r => {
+      const t = [].concat((r.metadata?.['oaf:entity']?.['oaf:result'] || {}).title || [])[0];
+      return t?.$;
+    },
+    body: r => (r.metadata?.['oaf:entity']?.['oaf:result']?.dateofacceptance?.$ || ''),
+    link: () => 'https://explore.openaire.eu/',
+  });
+  K.register('science', {
+    id: 'reactome', name: 'Reactome (biological pathways)', home: 'https://reactome.org/',
+    kw: 'reactome:3 biological_pathways:3 metabolic_pathways:2 signaling_pathway:3 reactome_pathways:3',
+    sample: 'insulin pathway',
+    url: q => `https://reactome.org/ContentService/search/query?query=${enc(K.term(q))}&species=Homo+sapiens`,
+    list: d => (d.results || []).flatMap(g => g.entries || []),
+    title: e => (e.name || '').replace(/<[^>]+>/g, ''),
+    body: e => e.typeName || 'Reactome entry',
+    link: e => `https://reactome.org/content/detail/${e.stId}`,
+  });
+  K.register('science', {
+    id: 'figshare', name: 'figshare (research data)', home: 'https://figshare.com/',
+    kw: 'figshare:3 research_data:3 open_research_data:3 research_datasets:3 figshare_data:3',
+    sample: 'climate data',
+    url: q => `https://api.figshare.com/v2/articles?search=${enc(K.term(q))}&page_size=5`,
+    list: d => d,
+    title: a => a.title,
+    body: a => `${a.defined_type_name || 'item'} · ${(a.published_date || '').slice(0, 10)}`,
+    link: a => a.url_public_html || a.url,
+  });
+  K.register('science', {
+    id: 'datacite', name: 'DataCite (DOI metadata)', home: 'https://datacite.org/',
+    kw: 'datacite:3 doi_metadata:3 dataset_dois:3 research_dois:3 doi_search:2',
+    sample: 'climate',
+    url: q => `https://api.datacite.org/dois?query=${enc(K.term(q))}&page%5Bsize%5D=5`,
+    list: 'data',
+    title: d => d.attributes?.titles?.[0]?.title,
+    body: d => `${d.attributes?.publicationYear ?? ''} · ${d.attributes?.publisher ?? ''}`,
+    link: d => d.attributes?.url || `https://doi.org/${d.id}`,
+  });
 })(Keyless);

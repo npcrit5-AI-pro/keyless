@@ -204,4 +204,284 @@
     body: o => o.d,
     link: () => 'https://www.bankofcanada.ca/rates/exchange/',
   });
+  K.register('finance', {
+    id: 'gemini-ticker', name: 'Gemini exchange (BTC/USD)', home: 'https://www.gemini.com/',
+    kw: 'gemini_exchange:3 gemini_crypto:3 gemini_price:3 gemini_btc:2',
+    sample: 'gemini bitcoin price',
+    url: () => 'https://api.gemini.com/v1/pubticker/btcusd',
+    list: d => [d],
+    title: () => 'BTC/USD on Gemini',
+    body: d => `Last ${d.last} · bid ${d.bid} · ask ${d.ask}`,
+    link: () => 'https://www.gemini.com/',
+  });
+  K.register('finance', {
+    id: 'bitstamp-ticker', name: 'Bitstamp (BTC/USD)', home: 'https://www.bitstamp.net/', proxy: true,
+    kw: 'bitstamp:3 bitstamp_price:3 bitstamp_ticker:3 bitstamp_btc:2',
+    sample: 'bitstamp price',
+    url: () => 'https://www.bitstamp.net/api/v2/ticker/btcusd/',
+    list: d => [d],
+    title: () => 'BTC/USD on Bitstamp',
+    body: d => `Last ${d.last} · high ${d.high} · low ${d.low}`,
+    link: () => 'https://www.bitstamp.net/',
+  });
+  K.register('finance', {
+    id: 'bitfinex-ticker', name: 'Bitfinex (BTC/USD)', home: 'https://www.bitfinex.com/', proxy: true,
+    kw: 'bitfinex:3 bitfinex_price:3 bitfinex_ticker:3 bitfinex_btc:2',
+    sample: 'bitfinex price',
+    url: () => 'https://api-pub.bitfinex.com/v2/ticker/tBTCUSD',
+    list: d => [{ bid: d[0], ask: d[2], last: d[6] }],
+    title: () => 'BTC/USD on Bitfinex',
+    body: x => `Last ${x.last} · bid ${x.bid} · ask ${x.ask}`,
+    link: () => 'https://www.bitfinex.com/',
+  });
+  K.register('finance', {
+    id: 'kucoin-price', name: 'KuCoin (BTC-USDT)', home: 'https://www.kucoin.com/', proxy: true,
+    kw: 'kucoin:3 kucoin_price:3 kucoin_ticker:3 kucoin_btc:2',
+    sample: 'kucoin price',
+    url: () => 'https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=BTC-USDT',
+    list: d => [d.data],
+    title: () => 'BTC-USDT on KuCoin',
+    body: x => `Price ${x.price} · size ${x.size}`,
+    link: () => 'https://www.kucoin.com/',
+  });
+  K.register('finance', {
+    id: 'bitso-ticker', name: 'Bitso (BTC/MXN)', home: 'https://bitso.com/', proxy: true,
+    kw: 'bitso:3 bitso_price:3 bitso_ticker:3 mexican_peso_crypto:2',
+    sample: 'bitso price',
+    url: () => 'https://api.bitso.com/v3/ticker/?book=btc_mxn',
+    list: d => [d.payload],
+    title: () => 'BTC/MXN on Bitso',
+    body: x => `Last ${x.last} MXN · high ${x.high}`,
+    link: () => 'https://bitso.com/',
+  });
+  K.register('finance', {
+    id: 'hitbtc-ticker', name: 'HitBTC (BTC/USD)', home: 'https://hitbtc.com/',
+    kw: 'hitbtc:3 hitbtc_price:3 hitbtc_ticker:3 hitbtc_btc:2',
+    sample: 'hitbtc price',
+    url: () => 'https://api.hitbtc.com/api/2/public/ticker/BTCUSD',
+    list: d => [d],
+    title: () => 'BTC/USD on HitBTC',
+    body: d => `Last ${d.last} · volume ${d.volume}`,
+    link: () => 'https://hitbtc.com/',
+  });
+  K.register('finance', {
+    id: 'binance-us-price', name: 'Binance.US (price)', home: 'https://www.binance.us/',
+    kw: 'binance_us:3 binance_price:3 binance_us_price:3 binance_ticker:2',
+    sample: 'binance us price',
+    url: () => 'https://api.binance.us/api/v3/ticker/price?symbol=BTCUSD',
+    list: d => [d],
+    title: x => `${x.symbol} on Binance.US`,
+    body: x => `Price ${x.price}`,
+    link: () => 'https://www.binance.us/',
+  });
+  K.register('finance', {
+    id: 'dexscreener-search', name: 'DEX Screener (token pairs)', home: 'https://dexscreener.com/',
+    kw: 'dex:3 dexscreener:3 defi_tokens:2 token_price:3 dex_pairs:3 decentralized_exchange:2',
+    sample: 'pepe',
+    url: q => `https://api.dexscreener.com/latest/dex/search?q=${enc(K.term(q))}`,
+    list: 'pairs',
+    title: p => `${p.baseToken?.symbol}/${p.quoteToken?.symbol} on ${p.chainId}`,
+    body: p => `$${p.priceUsd ?? '?'} · liquidity $${Math.round(p.liquidity?.usd || 0)}`,
+    link: p => p.url,
+  });
+  K.register('finance', {
+    id: 'defillama-protocols', name: 'DefiLlama (top DeFi protocols)', home: 'https://defillama.com/',
+    kw: 'defi:3 defi_protocols:3 tvl:3 total_value_locked:3 defillama:3 defi_tvl:3',
+    sample: 'defi protocols',
+    url: () => 'https://api.llama.fi/protocols',
+    list: d => [...d].sort((a, b) => (b.tvl || 0) - (a.tvl || 0)),
+    title: p => p.name,
+    body: p => `TVL $${((p.tvl || 0) / 1e9).toFixed(2)}B · ${p.category || 'DeFi'}`,
+    link: p => p.url || 'https://defillama.com/',
+  });
+  K.register('finance', {
+    id: 'defillama-chains', name: 'DefiLlama (blockchains by TVL)', home: 'https://defillama.com/chains',
+    kw: 'blockchain_tvl:3 chains_tvl:3 layer_1_tvl:2 blockchain_rankings:2 defillama_chains:3',
+    sample: 'blockchain tvl',
+    url: () => 'https://api.llama.fi/v2/chains',
+    list: d => [...d].sort((a, b) => (b.tvl || 0) - (a.tvl || 0)),
+    title: c => c.name,
+    body: c => `TVL $${((c.tvl || 0) / 1e9).toFixed(2)}B`,
+    link: () => 'https://defillama.com/chains',
+  });
+  K.register('finance', {
+    id: 'yahoo-chart', name: 'Yahoo Finance chart (stock quote)', home: 'https://finance.yahoo.com/', proxy: true,
+    kw: 'stock:3 stock_price:3 share_price:3 yahoo_finance:3 ticker_symbol:2 nasdaq:2 stocks:2',
+    sample: 'AAPL',
+    url: q => `https://query1.finance.yahoo.com/v8/finance/chart/${enc((K.term(q).split(' ')[0] || 'AAPL').toUpperCase())}?range=1d&interval=1d`,
+    list: 'chart.result',
+    title: r => `${r.meta.symbol} · ${r.meta.currency}`,
+    body: r => `Price ${r.meta.regularMarketPrice} (${r.meta.exchangeName})`,
+    link: r => `https://finance.yahoo.com/quote/${r.meta.symbol}`,
+  });
+  K.register('finance', {
+    id: 'coinlore-tickers', name: 'CoinLore (top coins)', home: 'https://www.coinlore.com/',
+    kw: 'crypto_prices:3 top_crypto:3 coin_prices:3 coinlore:3 crypto_ranking:2',
+    sample: 'top crypto coins',
+    url: () => 'https://api.coinlore.net/api/tickers/?start=0&limit=5',
+    list: 'data',
+    title: c => c.name,
+    body: c => `${c.symbol} · $${c.price_usd} · rank ${c.rank}`,
+    link: c => `https://www.coinlore.com/coin/${c.nameid}/`,
+  });
+  K.register('finance', {
+    id: 'coincheck-ticker', name: 'Coincheck (BTC/JPY)', home: 'https://coincheck.com/', proxy: true,
+    kw: 'coincheck:3 coincheck_price:3 yen_crypto:2 japan_crypto:2',
+    sample: 'coincheck price',
+    url: () => 'https://coincheck.com/api/ticker',
+    list: d => [d],
+    title: () => 'BTC/JPY on Coincheck',
+    body: d => `Last ${d.last} JPY · high ${d.high}`,
+    link: () => 'https://coincheck.com/',
+  });
+  K.register('finance', {
+    id: 'zaif-ticker', name: 'Zaif (BTC/JPY)', home: 'https://zaif.jp/', proxy: true,
+    kw: 'zaif:3 zaif_price:3 zaif_ticker:3 japan_bitcoin:2',
+    sample: 'zaif price',
+    url: () => 'https://api.zaif.jp/api/1/ticker/btc_jpy',
+    list: d => [d],
+    title: () => 'BTC/JPY on Zaif',
+    body: d => `Last ${d.last} JPY · volume ${d.volume}`,
+    link: () => 'https://zaif.jp/',
+  });
+  K.register('finance', {
+    id: 'bitflyer-ticker', name: 'bitFlyer (BTC/JPY)', home: 'https://bitflyer.com/', proxy: true,
+    kw: 'bitflyer:3 bitflyer_price:3 bitflyer_ticker:3 bitflyer_btc:2',
+    sample: 'bitflyer price',
+    url: () => 'https://api.bitflyer.com/v1/ticker',
+    list: d => [d],
+    title: () => 'BTC/JPY on bitFlyer',
+    body: d => `Best bid ${d.best_bid} · best ask ${d.best_ask}`,
+    link: () => 'https://bitflyer.com/',
+  });
+  K.register('finance', {
+    id: 'bithumb-ticker', name: 'Bithumb (BTC/KRW)', home: 'https://www.bithumb.com/',
+    kw: 'bithumb:3 bithumb_price:3 korean_crypto:2 korea_bitcoin:2 krw_crypto:2',
+    sample: 'bithumb price',
+    url: () => 'https://api.bithumb.com/public/ticker/BTC_KRW',
+    list: d => [d.data],
+    title: () => 'BTC/KRW on Bithumb',
+    body: x => `Closing ${x.closing_price} KRW · 24h volume ${x.units_traded_24H}`,
+    link: () => 'https://www.bithumb.com/',
+  });
+  K.register('finance', {
+    id: 'upbit-ticker', name: 'Upbit (BTC/KRW)', home: 'https://upbit.com/',
+    kw: 'upbit:3 upbit_price:3 upbit_ticker:3 korean_exchange:2',
+    sample: 'upbit price',
+    url: () => 'https://api.upbit.com/v1/ticker?markets=KRW-BTC',
+    list: d => d,
+    title: x => x.market,
+    body: x => `Trade ${x.trade_price} KRW · change ${x.signed_change_rate}`,
+    link: () => 'https://upbit.com/',
+  });
+  K.register('finance', {
+    id: 'gateio-tickers', name: 'Gate.io (BTC/USDT)', home: 'https://www.gate.io/',
+    kw: 'gateio:3 gate_io:3 gate_price:2 gate_ticker:3',
+    sample: 'gate io price',
+    url: () => 'https://api.gateio.ws/api/v4/spot/tickers?currency_pair=BTC_USDT',
+    list: d => d,
+    title: x => x.currency_pair,
+    body: x => `Last ${x.last} · 24h high ${x.high_24h}`,
+    link: () => 'https://www.gate.io/',
+  });
+  K.register('finance', {
+    id: 'huobi-ticker', name: 'Huobi (BTC/USDT)', home: 'https://www.huobi.com/',
+    kw: 'huobi:3 huobi_price:3 huobi_ticker:3 htx_price:2',
+    sample: 'huobi price',
+    url: () => 'https://api.huobi.pro/market/detail/merged?symbol=btcusdt',
+    list: d => [d.tick],
+    title: () => 'BTC/USDT on Huobi',
+    body: x => `Close ${x.close} · high ${x.high} · low ${x.low}`,
+    link: () => 'https://www.huobi.com/',
+  });
+  K.register('finance', {
+    id: 'okx-ticker', name: 'OKX (BTC-USDT)', home: 'https://www.okx.com/',
+    kw: 'okx:3 okx_price:3 okx_ticker:3 okx_btc:2',
+    sample: 'okx price',
+    url: () => 'https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT',
+    list: 'data',
+    title: x => x.instId,
+    body: x => `Last ${x.last} · 24h vol ${x.vol24h}`,
+    link: () => 'https://www.okx.com/',
+  });
+  K.register('finance', {
+    id: 'mexc-price', name: 'MEXC (BTC-USDT price)', home: 'https://www.mexc.com/', proxy: true,
+    kw: 'mexc:3 mexc_price:3 mexc_ticker:3',
+    sample: 'mexc price',
+    url: () => 'https://api.mexc.com/api/v3/ticker/price?symbol=BTCUSDT',
+    list: d => [d],
+    title: d => `${d.symbol} on MEXC`,
+    body: d => `Price ${d.price}`,
+    link: () => 'https://www.mexc.com/',
+  });
+  K.register('finance', {
+    id: 'exmo-ticker', name: 'EXMO (crypto tickers)', home: 'https://exmo.me/',
+    kw: 'exmo:3 exmo_price:3 exmo_ticker:3',
+    sample: 'exmo price',
+    url: () => 'https://api.exmo.com/v1.1/ticker',
+    list: d => Object.entries(d).slice(0, 5),
+    title: ([pair]) => `${pair} on EXMO`,
+    body: ([, t]) => `Last ${t.last_trade} · buy ${t.buy_price} · sell ${t.sell_price}`,
+    link: () => 'https://exmo.me/',
+  });
+  K.register('finance', {
+    id: 'poloniex-price', name: 'Poloniex (BTC/USDT price)', home: 'https://poloniex.com/', proxy: true,
+    kw: 'poloniex:3 poloniex_price:3 poloniex_ticker:3',
+    sample: 'poloniex price',
+    url: () => 'https://api.poloniex.com/markets/BTC_USDT/price',
+    list: d => [d],
+    title: d => `${d.symbol} on Poloniex`,
+    body: d => `Price ${d.price} · daily change ${d.dailyChange}`,
+    link: () => 'https://poloniex.com/',
+  });
+  K.register('finance', {
+    id: 'cex-ticker', name: 'CEX.IO (BTC/USD)', home: 'https://cex.io/', proxy: true,
+    kw: 'cex_io:3 cex_price:3 cexio:3 cex_ticker:2',
+    sample: 'cex price',
+    url: () => 'https://cex.io/api/ticker/BTC/USD',
+    list: d => [d],
+    title: () => 'BTC/USD on CEX.IO',
+    body: d => `Last ${d.last} · high ${d.high} · low ${d.low}`,
+    link: () => 'https://cex.io/',
+  });
+  K.register('finance', {
+    id: 'bitpanda-ticker', name: 'Bitpanda (price index)', home: 'https://www.bitpanda.com/',
+    kw: 'bitpanda:3 bitpanda_price:3 bitpanda_ticker:3 gold_price_eur:2',
+    sample: 'bitpanda price',
+    url: () => 'https://api.bitpanda.com/v1/ticker',
+    list: d => Object.entries(d).slice(0, 5),
+    title: ([asset]) => `${asset} prices`,
+    body: ([, quotes]) => `USD ${quotes.USD} · EUR ${quotes.EUR}`,
+    link: () => 'https://www.bitpanda.com/',
+  });
+  K.register('finance', {
+    id: 'nbp-gold', name: 'National Bank of Poland (gold price)', home: 'https://api.nbp.pl/',
+    kw: 'gold_price:3 gold_rate:3 gold_prices_poland:3 nbp_gold:3 precious_metals:2',
+    sample: 'gold price',
+    url: () => 'https://api.nbp.pl/api/cenyzlota/?format=json',
+    list: d => d,
+    title: g => `Gold ${g.cena} PLN per gram`,
+    body: g => g.data,
+    link: () => 'https://api.nbp.pl/',
+  });
+  K.register('finance', {
+    id: 'nbrb-rates', name: 'National Bank of Belarus (rates)', home: 'https://www.nbrb.by/',
+    kw: 'belarus_rates:3 belarusian_ruble:3 nbrb:3 byn_exchange:3 belarus_currency:2',
+    sample: 'belarus exchange rates',
+    url: () => 'https://api.nbrb.by/exrates/rates?periodicity=0',
+    list: d => d,
+    title: r => `${r.Cur_Abbreviation} · ${r.Cur_Name}`,
+    body: r => `${r.Cur_OfficialRate} BYN per ${r.Cur_Scale}`,
+    link: () => 'https://www.nbrb.by/',
+  });
+  K.register('finance', {
+    id: 'cnb-rates', name: 'Czech National Bank (daily rates)', home: 'https://www.cnb.cz/', proxy: true,
+    kw: 'czech_rates:3 czech_koruna:3 cnb:3 czech_national_bank:3 czk_rates:3',
+    sample: 'czech exchange rates',
+    url: () => 'https://api.cnb.cz/cnbapi/exrates/daily?lang=EN',
+    list: 'rates',
+    title: r => `${r.currency} (${r.currencyCode})`,
+    body: r => `${r.rate} CZK per ${r.amount} · ${r.country}`,
+    link: () => 'https://www.cnb.cz/',
+  });
 })(Keyless);

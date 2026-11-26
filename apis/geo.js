@@ -71,4 +71,64 @@
     body: ([code]) => `Flag image: https://flagcdn.com/w80/${code}.png`,
     link: ([code]) => `https://flagcdn.com/${code}.svg`,
   });
+  K.register('geo', {
+    id: 'zippopotam-us', name: 'Zippopotam (US ZIP codes)', home: 'https://www.zippopotam.us/',
+    kw: 'zip_code:3 zipcode:3 us_zip:3 zip_lookup:3 us_postal_code:3 zippopotam:3',
+    sample: 'zip 90210',
+    url: q => `https://api.zippopotam.us/us/${enc(K.need(q.match(/\d{5}/), 'Give a 5-digit US ZIP code.')[0])}`,
+    list: 'places',
+    title: p => `${p['place name']}, ${p['state abbreviation']}`,
+    body: p => `${p.latitude}, ${p.longitude}`,
+    link: () => 'https://www.zippopotam.us/',
+  });
+  K.register('geo', {
+    id: 'geo-gouv-communes', name: 'geo.api.gouv.fr (French communes)', home: 'https://geo.api.gouv.fr/',
+    kw: 'french_communes:3 commune_france:3 insee_communes:3 french_municipalities:3 communes_france:3 france_municipalities:2',
+    sample: 'Paris',
+    url: q => `https://geo.api.gouv.fr/communes?nom=${enc(K.term(q))}&fields=nom,population,codesPostaux&limit=5`,
+    list: d => d,
+    title: c => c.nom,
+    body: c => `Population ${c.population?.toLocaleString?.() ?? 'n/a'} · postcode ${(c.codesPostaux || [])[0] || 'n/a'}`,
+    link: () => 'https://geo.api.gouv.fr/',
+  });
+  K.register('geo', {
+    id: 'adresse-gouv', name: 'Base Adresse Nationale (France addresses)', home: 'https://adresse.data.gouv.fr/',
+    kw: 'french_address:3 address_france:3 adresse_gouv:3 ban_address:3 address_lookup_france:2',
+    sample: '8 bd du port Paris',
+    url: q => `https://api-adresse.data.gouv.fr/search/?q=${enc(q.trim())}&limit=5`,
+    list: 'features',
+    title: f => f.properties.label,
+    body: f => f.properties.context || '',
+    link: () => 'https://adresse.data.gouv.fr/',
+  });
+  K.register('geo', {
+    id: 'geogratis', name: 'Geogratis (Canadian place names)', home: 'https://geogratis.gc.ca/',
+    kw: 'canadian_places:3 canada_places:3 geogratis:3 canadian_geography:2 canada_place_names:3',
+    sample: 'ottawa',
+    url: q => `https://geogratis.gc.ca/services/geolocation/en/locate?q=${enc(K.term(q))}`,
+    list: d => d,
+    title: x => x.title,
+    body: x => x.qualifier || x.type || '',
+    link: () => 'https://geogratis.gc.ca/',
+  });
+  K.register('geo', {
+    id: 'entur-geocoder', name: 'Entur geocoder (Norway places)', home: 'https://entur.no/',
+    kw: 'norway_places:3 entur:3 norwegian_places:3 norway_geocoder:3 norway_stops:2',
+    sample: 'bergen',
+    url: q => `https://api.entur.io/geocoder/v1/autocomplete?text=${enc(K.term(q))}&size=5`,
+    list: 'features',
+    title: f => f.properties.label,
+    body: f => f.properties.county || f.properties.country || '',
+    link: () => 'https://entur.no/',
+  });
+  K.register('geo', {
+    id: 'country-is', name: 'country.is (IP to country)', home: 'https://country.is/',
+    kw: 'ip_country:3 country_of_ip:3 ip_to_country:3 country_is:3',
+    sample: '8.8.8.8',
+    url: q => `https://api.country.is/${enc((q.match(/\d{1,3}(?:\.\d{1,3}){3}/) || ['8.8.8.8'])[0])}`,
+    list: d => [d],
+    title: d => `${d.ip} is in ${d.country}`,
+    body: () => 'Country from IP (country.is)',
+    link: () => 'https://country.is/',
+  });
 })(Keyless);

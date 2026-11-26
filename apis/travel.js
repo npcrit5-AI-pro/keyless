@@ -26,4 +26,24 @@
     body: l => l.lineStatuses?.[0]?.statusSeverityDescription || '',
     link: l => `https://tfl.gov.uk/tube-dlr-overground/status/${l.id}`,
   });
+  K.register('travel', {
+    id: 'wikivoyage', name: 'Wikivoyage (travel guides)', home: 'https://en.wikivoyage.org/',
+    kw: 'travel_guide:3 wikivoyage:3 destination_guide:3 city_guide:3 travel_tips:3 trip_planning:2',
+    sample: 'Paris',
+    url: q => `https://en.wikivoyage.org/api/rest_v1/page/summary/${enc(K.cap(K.term(q)).replace(/ /g, '_'))}`,
+    list: d => [d],
+    title: d => d.title,
+    body: d => (d.extract || '').slice(0, 180),
+    link: d => d.content_urls?.desktop?.page,
+  });
+  K.register('travel', {
+    id: 'nhtsa-makes', name: 'NHTSA vehicle makes', home: 'https://vpic.nhtsa.dot.gov/',
+    kw: 'car_makes:3 vehicle_makes:3 car_brands:3 nhtsa:3 vehicle_manufacturers:2',
+    sample: 'car makes',
+    url: () => 'https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json',
+    list: 'Results',
+    title: m => m.MakeName,
+    body: m => `Make ID ${m.MakeId}`,
+    link: () => 'https://vpic.nhtsa.dot.gov/',
+  });
 })(Keyless);
