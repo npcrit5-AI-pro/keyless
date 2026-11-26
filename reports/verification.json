@@ -1,7 +1,7 @@
 {
   "date": "2026-11-26",
-  "passed": 192,
-  "total": 192,
+  "passed": 303,
+  "total": 303,
   "results": [
     {
       "id": "openlibrary",
@@ -12,7 +12,8 @@
       "ok": true,
       "count": 5,
       "first": "The Hobbit (1937)",
-      "attempts": 2
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "archiveorg",
@@ -23,7 +24,8 @@
       "ok": true,
       "count": 5,
       "first": "KSCO 1080 AM [AM 1080 KSCO] : November 27, 2019 09:00PM-10:00PM PST",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "poetrydb",
@@ -34,7 +36,8 @@
       "ok": true,
       "count": 5,
       "first": "A Lover's Complaint",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "bible",
@@ -45,7 +48,32 @@
       "ok": true,
       "count": 1,
       "first": "John 3:16",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "openlibrary-authors",
+      "name": "Open Library (authors)",
+      "category": "books",
+      "proxy": false,
+      "sample": "tolkien authors",
+      "ok": true,
+      "count": 5,
+      "first": "F. Tolkien",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "mangadex",
+      "name": "MangaDex (manga titles)",
+      "category": "books",
+      "proxy": true,
+      "sample": "naruto manga",
+      "ok": true,
+      "count": 5,
+      "first": "Renge to Naruto!",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "hackernews",
@@ -56,7 +84,8 @@
       "ok": true,
       "count": 5,
       "first": "Is Firefox under performing because of its Rust powered engine, Servo?",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "lobsters",
@@ -67,7 +96,20 @@
       "ok": true,
       "count": 5,
       "first": "Slow Ubuntu security response times",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "hn-firebase-top",
+      "name": "Hacker News (Firebase top stories)",
+      "category": "news",
+      "proxy": false,
+      "sample": "top stories",
+      "ok": true,
+      "count": 5,
+      "first": "AMD Specific Patches for Llama.cpp",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "wikipedia",
@@ -78,7 +120,8 @@
       "ok": true,
       "count": 5,
       "first": "Marie Curie",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "wikidata",
@@ -89,7 +132,8 @@
       "ok": true,
       "count": 5,
       "first": "Lisbon",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nobel",
@@ -100,7 +144,92 @@
       "ok": true,
       "count": 3,
       "first": "Irène Joliot-Curie",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "wikipedia-fr",
+      "name": "Wikipédia (French summary)",
+      "category": "reference",
+      "proxy": false,
+      "sample": "Paris",
+      "ok": true,
+      "count": 1,
+      "first": "Paris",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "wikipedia-de",
+      "name": "Wikipedia (German summary)",
+      "category": "reference",
+      "proxy": false,
+      "sample": "Berlin",
+      "ok": true,
+      "count": 1,
+      "first": "Berlin",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "wikipedia-es",
+      "name": "Wikipedia (Spanish summary)",
+      "category": "reference",
+      "proxy": false,
+      "sample": "Madrid",
+      "ok": true,
+      "count": 1,
+      "first": "Madrid",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "wikipedia-it",
+      "name": "Wikipedia (Italian summary)",
+      "category": "reference",
+      "proxy": false,
+      "sample": "Roma",
+      "ok": true,
+      "count": 1,
+      "first": "Roma",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "wikipedia-pt",
+      "name": "Wikipédia (Portuguese summary)",
+      "category": "reference",
+      "proxy": false,
+      "sample": "Lisboa",
+      "ok": true,
+      "count": 1,
+      "first": "Lisboa",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "wikipedia-ja",
+      "name": "Wikipedia (Japanese summary)",
+      "category": "reference",
+      "proxy": false,
+      "sample": "東京",
+      "ok": true,
+      "count": 1,
+      "first": "東京",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "alquran",
+      "name": "Al Quran Cloud (ayah lookup)",
+      "category": "reference",
+      "proxy": false,
+      "sample": "quran 1:1",
+      "ok": true,
+      "count": 1,
+      "first": "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "wiktionary",
@@ -111,7 +240,8 @@
       "ok": true,
       "count": 1,
       "first": "serendipity · Noun",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "datamuse",
@@ -122,7 +252,8 @@
       "ok": true,
       "count": 1,
       "first": "happy",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "mymemory",
@@ -133,7 +264,8 @@
       "ok": true,
       "count": 1,
       "first": "bonjour",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "languagetool",
@@ -144,7 +276,8 @@
       "ok": true,
       "count": 2,
       "first": "This sentence does not start with an uppercase letter.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "urbandictionary",
@@ -155,7 +288,32 @@
       "ok": true,
       "count": 5,
       "first": "Yeet",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "tatoeba",
+      "name": "Tatoeba (example sentences)",
+      "category": "language",
+      "proxy": true,
+      "sample": "hello",
+      "ok": true,
+      "count": 5,
+      "first": "Hello",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "languagetool-languages",
+      "name": "LanguageTool (supported languages)",
+      "category": "language",
+      "proxy": false,
+      "sample": "grammar languages",
+      "ok": true,
+      "count": 5,
+      "first": "Arabic",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "weather",
@@ -166,7 +324,8 @@
       "ok": true,
       "count": 1,
       "first": "Lisbon, Portugal",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openmeteo-air",
@@ -177,7 +336,8 @@
       "ok": true,
       "count": 1,
       "first": "Air quality · Berlin",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openmeteo-marine",
@@ -188,7 +348,8 @@
       "ok": true,
       "count": 1,
       "first": "Waves · Biarritz",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openmeteo-archive",
@@ -199,7 +360,8 @@
       "ok": true,
       "count": 3,
       "first": "2024-07-01 · Berlin",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openmeteo-climate",
@@ -210,7 +372,8 @@
       "ok": true,
       "count": 3,
       "first": "2030-01-01 · Berlin (projection)",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "metno",
@@ -221,7 +384,8 @@
       "ok": true,
       "count": 1,
       "first": "Oslo · MET Norway",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nws",
@@ -232,7 +396,8 @@
       "ok": true,
       "count": 1,
       "first": "Chicago · Thanksgiving Day",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nws-alerts",
@@ -243,7 +408,8 @@
       "ok": true,
       "count": 5,
       "first": "Dense Fog Advisory",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "wttr",
@@ -254,7 +420,8 @@
       "ok": true,
       "count": 1,
       "first": "Madrid · Partly Cloudy",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "7timer",
@@ -265,7 +432,44 @@
       "ok": true,
       "count": 1,
       "first": "Madrid · 7Timer",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "ipma-forecast",
+      "name": "IPMA (Portugal daily forecast)",
+      "category": "weather",
+      "proxy": false,
+      "sample": "portugal forecast",
+      "ok": true,
+      "count": 5,
+      "first": "2026-11-26",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "brightsky-dwd",
+      "name": "Bright Sky (DWD, Germany)",
+      "category": "weather",
+      "proxy": false,
+      "sample": "weather Berlin",
+      "ok": true,
+      "count": 1,
+      "first": "Berlin · dry · -1.9°C",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "aviation-metar",
+      "name": "Aviation Weather METAR",
+      "category": "weather",
+      "proxy": true,
+      "sample": "metar KJFK",
+      "ok": true,
+      "count": 1,
+      "first": "KJFK · New York/JF Kennedy Intl, NY, US",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "usgs",
@@ -276,7 +480,8 @@
       "ok": true,
       "count": 5,
       "first": "M 0.9 - 85 km NNW of Karluk, Alaska",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "emsc",
@@ -287,7 +492,8 @@
       "ok": true,
       "count": 5,
       "first": "TARAPACA, CHILE",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "geonet",
@@ -298,7 +504,8 @@
       "ok": true,
       "count": 5,
       "first": "10 km north-west of Ruatoria",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "eonet",
@@ -309,7 +516,8 @@
       "ok": true,
       "count": 5,
       "first": "Wildfire Little Ridge, Highland, Virginia",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openmeteo-flood",
@@ -320,7 +528,8 @@
       "ok": true,
       "count": 1,
       "first": "River discharge · Berlin",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "usgs-volcano",
@@ -331,7 +540,8 @@
       "ok": true,
       "count": 5,
       "first": "Adagdak",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ukflood",
@@ -342,7 +552,8 @@
       "ok": true,
       "count": 5,
       "first": "South Cornwall coast from Lizard Point to Gribbin Head excluding the Tidal Fal Estuary",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "crossref",
@@ -353,7 +564,8 @@
       "ok": true,
       "count": 5,
       "first": "Machine learning with sklearn",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "pubmed",
@@ -364,7 +576,8 @@
       "ok": true,
       "count": 5,
       "first": "Precision/Locus-Selective G-Quadruplex Stabilization as the Next Medicinal Chemistry Challenge.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "pubchem",
@@ -375,7 +588,8 @@
       "ok": true,
       "count": 1,
       "first": "Aspirin",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "uniprot",
@@ -386,7 +600,8 @@
       "ok": true,
       "count": 5,
       "first": "Insulin",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ensembl",
@@ -397,7 +612,8 @@
       "ok": true,
       "count": 1,
       "first": "BRCA2",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "chembl",
@@ -408,7 +624,8 @@
       "ok": true,
       "count": 5,
       "first": "ASPIRIN",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ror",
@@ -419,7 +636,8 @@
       "ok": true,
       "count": 5,
       "first": "International Tourism Institute",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "inspire",
@@ -430,7 +648,8 @@
       "ok": true,
       "count": 5,
       "first": "Boson-Fermion and Boson-Boson Scattering in a Yang-Mills Theory at High-Energy: Sixth Order Perturbation Theory",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "zenodo",
@@ -441,7 +660,8 @@
       "ok": true,
       "count": 5,
       "first": "ComFaceID_Class_Model",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "quickgo",
@@ -452,7 +672,8 @@
       "ok": true,
       "count": 5,
       "first": "execution phase of apoptosis",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "rcsb",
@@ -463,7 +684,8 @@
       "ok": true,
       "count": 1,
       "first": "THE CRYSTAL STRUCTURE OF HUMAN DEOXYHAEMOGLOBIN AT 1.74 ANGSTROMS RESOLUTION",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "newton",
@@ -474,7 +696,8 @@
       "ok": true,
       "count": 1,
       "first": "derive(x^2)",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "wellcome",
@@ -485,7 +708,80 @@
       "ok": true,
       "count": 5,
       "first": "Plague : how to recognise, prevent and treat plague / by James Cantlie.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "biorxiv",
+      "name": "bioRxiv (recent preprints)",
+      "category": "science",
+      "proxy": false,
+      "sample": "recent preprints",
+      "ok": true,
+      "count": 5,
+      "first": "An open-source semi-automated workflow for multi-omics sample extraction",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "interpro",
+      "name": "InterPro (protein families)",
+      "category": "science",
+      "proxy": false,
+      "sample": "kinase",
+      "ok": true,
+      "count": 5,
+      "first": "Phosphofructokinase domain",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "openaire",
+      "name": "OpenAIRE (research outputs)",
+      "category": "science",
+      "proxy": false,
+      "sample": "climate research",
+      "ok": true,
+      "count": 5,
+      "first": "Climate Research",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "reactome",
+      "name": "Reactome (biological pathways)",
+      "category": "science",
+      "proxy": false,
+      "sample": "insulin pathway",
+      "ok": true,
+      "count": 5,
+      "first": "Insulin",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "figshare",
+      "name": "figshare (research data)",
+      "category": "science",
+      "proxy": false,
+      "sample": "climate data",
+      "ok": true,
+      "count": 5,
+      "first": "Perceived accessibility and affordability of medications for focusing on digitally active population in Jordan",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "datacite",
+      "name": "DataCite (DOI metadata)",
+      "category": "science",
+      "proxy": false,
+      "sample": "climate",
+      "ok": true,
+      "count": 5,
+      "first": "Future Energy Systems: Interdisciplinary Solutions in a Climate Change Context",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "launchlibrary",
@@ -496,7 +792,8 @@
       "ok": true,
       "count": 5,
       "first": "Long March 2D | Yaogan 49 Group 01",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "spaceflightnews",
@@ -507,7 +804,8 @@
       "ok": true,
       "count": 5,
       "first": "The ‘bare-knuckled’ future of life in space with Tim Marshall",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "whereiss",
@@ -518,7 +816,8 @@
       "ok": true,
       "count": 1,
       "first": "International Space Station",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "celestrak",
@@ -529,7 +828,8 @@
       "ok": true,
       "count": 1,
       "first": "ISS (ZARYA)",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "swpc",
@@ -540,7 +840,8 @@
       "ok": true,
       "count": 5,
       "first": "Space weather 2026-11-26",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nasaimages",
@@ -551,7 +852,8 @@
       "ok": true,
       "count": 5,
       "first": "NASA Dedicates Martian Landmarks To Apollo 1 Crew",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "sunrise",
@@ -562,7 +864,8 @@
       "ok": true,
       "count": 1,
       "first": "Sun times · Lisbon",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "jpl-sbdb",
@@ -573,7 +876,8 @@
       "ok": true,
       "count": 1,
       "first": "99942 Apophis (2004 MN4)",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "jpl-cad",
@@ -584,7 +888,8 @@
       "ok": true,
       "count": 5,
       "first": "Asteroid 2026 VQ19 close approach",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "exoplanets",
@@ -595,7 +900,32 @@
       "ok": true,
       "count": 5,
       "first": "TOI-6647 b",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "jpl-fireballs",
+      "name": "NASA JPL fireball events",
+      "category": "space",
+      "proxy": true,
+      "sample": "fireballs",
+      "ok": true,
+      "count": 5,
+      "first": "Fireball 2026-10-04 03:14:45",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "jpl-sentry",
+      "name": "NASA JPL Sentry (impact risk)",
+      "category": "space",
+      "proxy": true,
+      "sample": "asteroid risk",
+      "ok": true,
+      "count": 5,
+      "first": "Object 2011 TO",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nominatim",
@@ -606,7 +936,8 @@
       "ok": true,
       "count": 5,
       "first": "Lisboa, Portugal",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openmeteo-geo",
@@ -617,7 +948,8 @@
       "ok": true,
       "count": 5,
       "first": "Lisbon, Portugal",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ipwhois",
@@ -628,7 +960,8 @@
       "ok": true,
       "count": 1,
       "first": "1.1.1.1 · Brisbane, Australia",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "bigdatacloud",
@@ -639,7 +972,8 @@
       "ok": true,
       "count": 1,
       "first": "Santa Maria Maior, Portugal",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "open-elevation",
@@ -650,7 +984,8 @@
       "ok": true,
       "count": 1,
       "first": "Zurich · 435 m",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "flagcdn",
@@ -661,7 +996,80 @@
       "ok": true,
       "count": 5,
       "first": "AD · Andorra",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "zippopotam-us",
+      "name": "Zippopotam (US ZIP codes)",
+      "category": "geo",
+      "proxy": false,
+      "sample": "zip 90210",
+      "ok": true,
+      "count": 1,
+      "first": "Beverly Hills, CA",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "geo-gouv-communes",
+      "name": "geo.api.gouv.fr (French communes)",
+      "category": "geo",
+      "proxy": false,
+      "sample": "Paris",
+      "ok": true,
+      "count": 5,
+      "first": "Paris",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "adresse-gouv",
+      "name": "Base Adresse Nationale (France addresses)",
+      "category": "geo",
+      "proxy": false,
+      "sample": "8 bd du port Paris",
+      "ok": true,
+      "count": 5,
+      "first": "Port du Louvre 75001 Paris",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "geogratis",
+      "name": "Geogratis (Canadian place names)",
+      "category": "geo",
+      "proxy": false,
+      "sample": "ottawa",
+      "ok": true,
+      "count": 5,
+      "first": "Ottawa, Carleton; Russell, Ontario (City)",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "entur-geocoder",
+      "name": "Entur geocoder (Norway places)",
+      "category": "geo",
+      "proxy": false,
+      "sample": "bergen",
+      "ok": true,
+      "count": 5,
+      "first": "Bergen sentrum, Bergen",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "country-is",
+      "name": "country.is (IP to country)",
+      "category": "geo",
+      "proxy": false,
+      "sample": "8.8.8.8",
+      "ok": true,
+      "count": 1,
+      "first": "8.8.8.8 is in US",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "currency",
@@ -672,7 +1080,8 @@
       "ok": true,
       "count": 1,
       "first": "100 USD = 91.12 EUR",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "erapi",
@@ -683,7 +1092,8 @@
       "ok": true,
       "count": 1,
       "first": "Exchange rates · base USD",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "coingecko",
@@ -694,7 +1104,8 @@
       "ok": true,
       "count": 1,
       "first": "Bitcoin · $60,462",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "kraken",
@@ -705,7 +1116,8 @@
       "ok": true,
       "count": 1,
       "first": "Kraken · XBT/USD",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "coinbase",
@@ -716,7 +1128,8 @@
       "ok": true,
       "count": 1,
       "first": "BTC/USD spot",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "mempool",
@@ -727,7 +1140,8 @@
       "ok": true,
       "count": 1,
       "first": "Bitcoin recommended fees",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "blockchain-info",
@@ -738,7 +1152,8 @@
       "ok": true,
       "count": 1,
       "first": "Bitcoin network",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "treasury",
@@ -749,7 +1164,8 @@
       "ok": true,
       "count": 5,
       "first": "Debt to the penny · 2026-11-24",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "worldbank",
@@ -760,7 +1176,8 @@
       "ok": true,
       "count": 5,
       "first": "United States · GDP 2025",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ecbstats",
@@ -771,7 +1188,8 @@
       "ok": true,
       "count": 1,
       "first": "ECB EUR/USD reference",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nbp",
@@ -782,7 +1200,8 @@
       "ok": true,
       "count": 1,
       "first": "NBP · USD/PLN",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "cbr",
@@ -793,7 +1212,8 @@
       "ok": true,
       "count": 5,
       "first": "AUD · Австралийский доллар",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "fawaz-currency",
@@ -804,7 +1224,8 @@
       "ok": true,
       "count": 1,
       "first": "Currency rates · base USD",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "fear-greed",
@@ -815,7 +1236,8 @@
       "ok": true,
       "count": 5,
       "first": "Extreme Fear · 11/100",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "coinpaprika",
@@ -826,7 +1248,8 @@
       "ok": true,
       "count": 5,
       "first": "Ethereum",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "gleif",
@@ -837,7 +1260,8 @@
       "ok": true,
       "count": 5,
       "first": "APPLE TREE",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "boc-fx",
@@ -848,7 +1272,344 @@
       "ok": true,
       "count": 5,
       "first": "USD → CAD 1.4219",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "gemini-ticker",
+      "name": "Gemini exchange (BTC/USD)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "gemini bitcoin price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/USD on Gemini",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "bitstamp-ticker",
+      "name": "Bitstamp (BTC/USD)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "bitstamp price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/USD on Bitstamp",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "bitfinex-ticker",
+      "name": "Bitfinex (BTC/USD)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "bitfinex price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/USD on Bitfinex",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "kucoin-price",
+      "name": "KuCoin (BTC-USDT)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "kucoin price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC-USDT on KuCoin",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "bitso-ticker",
+      "name": "Bitso (BTC/MXN)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "bitso price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/MXN on Bitso",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "hitbtc-ticker",
+      "name": "HitBTC (BTC/USD)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "hitbtc price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/USD on HitBTC",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "binance-us-price",
+      "name": "Binance.US (price)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "binance us price",
+      "ok": true,
+      "count": 1,
+      "first": "BTCUSD on Binance.US",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "dexscreener-search",
+      "name": "DEX Screener (token pairs)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "pepe",
+      "ok": true,
+      "count": 5,
+      "first": "PEPE/WETH on ethereum",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "defillama-protocols",
+      "name": "DefiLlama (top DeFi protocols)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "defi protocols",
+      "ok": true,
+      "count": 5,
+      "first": "Binance CEX",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "defillama-chains",
+      "name": "DefiLlama (blockchains by TVL)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "blockchain tvl",
+      "ok": true,
+      "count": 5,
+      "first": "Ethereum",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "yahoo-chart",
+      "name": "Yahoo Finance chart (stock quote)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "AAPL",
+      "ok": true,
+      "count": 1,
+      "first": "AAPL · USD",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "coinlore-tickers",
+      "name": "CoinLore (top coins)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "top crypto coins",
+      "ok": true,
+      "count": 5,
+      "first": "Bitcoin",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "coincheck-ticker",
+      "name": "Coincheck (BTC/JPY)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "coincheck price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/JPY on Coincheck",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "zaif-ticker",
+      "name": "Zaif (BTC/JPY)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "zaif price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/JPY on Zaif",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "bitflyer-ticker",
+      "name": "bitFlyer (BTC/JPY)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "bitflyer price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/JPY on bitFlyer",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "bithumb-ticker",
+      "name": "Bithumb (BTC/KRW)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "bithumb price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/KRW on Bithumb",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "upbit-ticker",
+      "name": "Upbit (BTC/KRW)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "upbit price",
+      "ok": true,
+      "count": 1,
+      "first": "KRW-BTC",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "gateio-tickers",
+      "name": "Gate.io (BTC/USDT)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "gate io price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC_USDT",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "huobi-ticker",
+      "name": "Huobi (BTC/USDT)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "huobi price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/USDT on Huobi",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "okx-ticker",
+      "name": "OKX (BTC-USDT)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "okx price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC-USDT",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "mexc-price",
+      "name": "MEXC (BTC-USDT price)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "mexc price",
+      "ok": true,
+      "count": 1,
+      "first": "BTCUSDT on MEXC",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "exmo-ticker",
+      "name": "EXMO (crypto tickers)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "exmo price",
+      "ok": true,
+      "count": 5,
+      "first": "ADA_USDC on EXMO",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "poloniex-price",
+      "name": "Poloniex (BTC/USDT price)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "poloniex price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC_USDT on Poloniex",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "cex-ticker",
+      "name": "CEX.IO (BTC/USD)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "cex price",
+      "ok": true,
+      "count": 1,
+      "first": "BTC/USD on CEX.IO",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "bitpanda-ticker",
+      "name": "Bitpanda (price index)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "bitpanda price",
+      "ok": true,
+      "count": 5,
+      "first": "XAU prices",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "nbp-gold",
+      "name": "National Bank of Poland (gold price)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "gold price",
+      "ok": true,
+      "count": 1,
+      "first": "Gold 464.88 PLN per gram",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "nbrb-rates",
+      "name": "National Bank of Belarus (rates)",
+      "category": "finance",
+      "proxy": false,
+      "sample": "belarus exchange rates",
+      "ok": true,
+      "count": 5,
+      "first": "AUD · Австралийский доллар",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "cnb-rates",
+      "name": "Czech National Bank (daily rates)",
+      "category": "finance",
+      "proxy": true,
+      "sample": "czech exchange rates",
+      "ok": true,
+      "count": 5,
+      "first": "dollar (AUD)",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openfacts-barcode",
@@ -859,7 +1620,8 @@
       "ok": true,
       "count": 1,
       "first": "Nutella",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openbeautyfacts",
@@ -870,7 +1632,8 @@
       "ok": true,
       "count": 5,
       "first": "Coconut Milk",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "themealdb",
@@ -881,7 +1644,8 @@
       "ok": true,
       "count": 5,
       "first": "Chicken Handi",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "themealdb-random",
@@ -892,7 +1656,8 @@
       "ok": true,
       "count": 1,
       "first": "Saskatoon Pie",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "cocktail",
@@ -903,7 +1668,8 @@
       "ok": true,
       "count": 4,
       "first": "Mojito",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "fruityvice",
@@ -914,7 +1680,8 @@
       "ok": true,
       "count": 1,
       "first": "Banana",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ukfood",
@@ -925,7 +1692,8 @@
       "ok": true,
       "count": 5,
       "first": "Tesco",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "inaturalist",
@@ -936,7 +1704,8 @@
       "ok": true,
       "count": 5,
       "first": "Red Fox (Vulpes vulpes)",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "gbif",
@@ -947,7 +1716,8 @@
       "ok": true,
       "count": 5,
       "first": "Panthera leo",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "gbif-occ",
@@ -958,7 +1728,8 @@
       "ok": true,
       "count": 5,
       "first": "Panthera leo melanochaita (C.E.H.Smith, 1858) · South Africa",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "dogceo",
@@ -969,7 +1740,8 @@
       "ok": true,
       "count": 1,
       "first": "Random dog photo",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "catfact",
@@ -980,7 +1752,56 @@
       "ok": true,
       "count": 5,
       "first": "Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "randomfox",
+      "name": "RandomFox (fox pictures)",
+      "category": "animals",
+      "proxy": false,
+      "sample": "random fox",
+      "ok": true,
+      "count": 1,
+      "first": "Random fox picture",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "cataas",
+      "name": "Cat as a Service (cat pictures)",
+      "category": "animals",
+      "proxy": false,
+      "sample": "cat pictures",
+      "ok": true,
+      "count": 5,
+      "first": "Cat picture 0270ee2e",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "thecatapi-images",
+      "name": "The Cat API (images)",
+      "category": "animals",
+      "proxy": false,
+      "sample": "cat api",
+      "ok": true,
+      "count": 5,
+      "first": "Cat image 181",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "dog-breeds",
+      "name": "Dog CEO (breed list)",
+      "category": "animals",
+      "proxy": false,
+      "sample": "dog breeds",
+      "ok": true,
+      "count": 5,
+      "first": "Affenpinscher",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "deezer",
@@ -991,7 +1812,8 @@
       "ok": true,
       "count": 5,
       "first": "Starboy · The Weeknd",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "itunes",
@@ -1002,7 +1824,8 @@
       "ok": true,
       "count": 4,
       "first": "Bohemian Rhapsody · Queen",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "radiobrowser",
@@ -1013,7 +1836,8 @@
       "ok": true,
       "count": 5,
       "first": "101 SMOOTH JAZZ",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "lrclib",
@@ -1024,7 +1848,8 @@
       "ok": true,
       "count": 5,
       "first": "YELLOW · Yellow Generation",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "listenbrainz",
@@ -1035,7 +1860,8 @@
       "ok": true,
       "count": 5,
       "first": "_rob_",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "tvmaze",
@@ -1046,7 +1872,8 @@
       "ok": true,
       "count": 5,
       "first": "Breaking Bad (2008)",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "tvmaze-schedule",
@@ -1057,7 +1884,8 @@
       "ok": true,
       "count": 5,
       "first": "Good Morning America · S2026E236",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "imdb-suggest",
@@ -1068,7 +1896,8 @@
       "ok": true,
       "count": 5,
       "first": "Inception (2010)",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ghibli",
@@ -1079,7 +1908,44 @@
       "ok": true,
       "count": 5,
       "first": "Castle in the Sky (1986)",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "kitsu-anime",
+      "name": "Kitsu (anime search)",
+      "category": "film",
+      "proxy": false,
+      "sample": "naruto",
+      "ok": true,
+      "count": 5,
+      "first": "Naruto: Shippuuden",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "swapi",
+      "name": "Star Wars API (characters)",
+      "category": "film",
+      "proxy": false,
+      "sample": "luke skywalker",
+      "ok": true,
+      "count": 1,
+      "first": "Luke Skywalker",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "shikimori",
+      "name": "Shikimori (anime database)",
+      "category": "film",
+      "proxy": false,
+      "sample": "naruto",
+      "ok": true,
+      "count": 5,
+      "first": "Наруто",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "cheapshark",
@@ -1090,7 +1956,8 @@
       "ok": true,
       "count": 5,
       "first": "Bread and Fred",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "cheapshark-search",
@@ -1101,7 +1968,8 @@
       "ok": true,
       "count": 5,
       "first": "Portal",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "freetogame",
@@ -1112,7 +1980,8 @@
       "ok": true,
       "count": 5,
       "first": "Overwatch",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "pokeapi",
@@ -1123,7 +1992,8 @@
       "ok": true,
       "count": 1,
       "first": "Pikachu",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "overwatch-heroes",
@@ -1134,7 +2004,8 @@
       "ok": true,
       "count": 5,
       "first": "Ana",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ygoprodeck",
@@ -1145,7 +2016,8 @@
       "ok": true,
       "count": 5,
       "first": "Dark Magician",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "digimon",
@@ -1156,7 +2028,8 @@
       "ok": true,
       "count": 5,
       "first": "Agumon",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "warframe",
@@ -1167,7 +2040,8 @@
       "ok": true,
       "count": 5,
       "first": "Amesha",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "speedrun",
@@ -1178,7 +2052,128 @@
       "ok": true,
       "count": 5,
       "first": "Cat Mario",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "gamerpower",
+      "name": "GamerPower (free game giveaways)",
+      "category": "games",
+      "proxy": false,
+      "sample": "free games",
+      "ok": true,
+      "count": 5,
+      "first": "A Tiny Sticker Tale (Mobile) Giveaway",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "fortnite-news",
+      "name": "Fortnite-API (news)",
+      "category": "games",
+      "proxy": false,
+      "sample": "fortnite news",
+      "ok": true,
+      "count": 5,
+      "first": "Golden Week + Community Day",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "eldenring-bosses",
+      "name": "Elden Ring API (bosses)",
+      "category": "games",
+      "proxy": false,
+      "sample": "elden ring bosses",
+      "ok": true,
+      "count": 5,
+      "first": "Abductor Virgins",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "steam-store",
+      "name": "Steam store search",
+      "category": "games",
+      "proxy": true,
+      "sample": "portal",
+      "ok": true,
+      "count": 5,
+      "first": "Portal 2",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "mojang-profile",
+      "name": "Mojang (Minecraft username lookup)",
+      "category": "games",
+      "proxy": true,
+      "sample": "Notch",
+      "ok": true,
+      "count": 1,
+      "first": "Notch",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "opendota-heroes",
+      "name": "OpenDota (Dota 2 heroes)",
+      "category": "games",
+      "proxy": false,
+      "sample": "dota heroes",
+      "ok": true,
+      "count": 5,
+      "first": "Anti-Mage",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "scryfall-cards",
+      "name": "Scryfall (Magic: The Gathering cards)",
+      "category": "games",
+      "proxy": false,
+      "sample": "lightning bolt",
+      "ok": true,
+      "count": 1,
+      "first": "Lightning Bolt",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "pokemontcg",
+      "name": "Pokémon TCG (cards)",
+      "category": "games",
+      "proxy": false,
+      "sample": "pikachu",
+      "ok": true,
+      "count": 5,
+      "first": "Pikachu",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "lichess-user",
+      "name": "Lichess (player profile)",
+      "category": "games",
+      "proxy": false,
+      "sample": "DrNykterstein",
+      "ok": true,
+      "count": 1,
+      "first": "DrNykterstein",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "chesscom-player",
+      "name": "Chess.com (player profile)",
+      "category": "games",
+      "proxy": false,
+      "sample": "hikaru",
+      "ok": true,
+      "count": 1,
+      "first": "hikaru",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "espn-scoreboard",
@@ -1189,7 +2184,8 @@
       "ok": true,
       "count": 5,
       "first": "Chicago Bears at Detroit Lions",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "espn-nba",
@@ -1200,7 +2196,8 @@
       "ok": true,
       "count": 5,
       "first": "Miami Heat at New York Knicks",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "espn-soccer",
@@ -1211,7 +2208,8 @@
       "ok": true,
       "count": 1,
       "first": "Chelsea at Nottingham Forest",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "espn-mlb",
@@ -1222,7 +2220,8 @@
       "ok": true,
       "count": 1,
       "first": "Milwaukee Brewers at Tampa Bay Rays",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "espn-nhl",
@@ -1233,7 +2232,8 @@
       "ok": true,
       "count": 5,
       "first": "Toronto Maple Leafs at Boston Bruins",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "jolpica-f1",
@@ -1244,7 +2244,8 @@
       "ok": true,
       "count": 5,
       "first": "1. Andrea Kimi Antonelli",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nhl-stats",
@@ -1255,7 +2256,8 @@
       "ok": true,
       "count": 5,
       "first": "Carolina Hurricanes",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "mlb-stats",
@@ -1266,7 +2268,20 @@
       "ok": true,
       "count": 5,
       "first": "Rays",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "openligadb-bundesliga",
+      "name": "OpenLigaDB (Bundesliga matches)",
+      "category": "sports",
+      "proxy": false,
+      "sample": "bundesliga",
+      "ok": true,
+      "count": 5,
+      "first": "SV Werder Bremen vs Borussia Mönchengladbach",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openfda-drug",
@@ -1277,7 +2292,8 @@
       "ok": true,
       "count": 5,
       "first": "Ibuprofen Dye Free",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openfda-recall",
@@ -1288,7 +2304,8 @@
       "ok": true,
       "count": 5,
       "first": "Ground Up Nut Butter Cups filled with Almond & Cashew Butter Dark Chocolate Two Pack. Net",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "openfda-device",
@@ -1299,7 +2316,8 @@
       "ok": true,
       "count": 5,
       "first": "ELECTRODE, PACEMAKER, PERMANENT",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "clinicaltrials",
@@ -1310,7 +2328,8 @@
       "ok": true,
       "count": 5,
       "first": "A Survey To Elicit The Relationship Between Literacy And Glycemic Control In Pediatric Diabetes",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "medlineplus",
@@ -1321,7 +2340,8 @@
       "ok": true,
       "count": 5,
       "first": "Diabetes",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nih-rxnorm",
@@ -1332,7 +2352,8 @@
       "ok": true,
       "count": 5,
       "first": "{100 (acetaminophen 250 MG / aspirin 250 MG / caffeine 65 MG Oral Tablet [Excedrin]) / 24 (acetaminophen 250 MG / aspirin 250 MG / diphenhydramine citrate 38 MG Oral Tablet [Excedrin PM Triple Action]) } Pack [Excedrin PM Triple Action Caplets and Excedrin Extra Strength Pain Reliever]",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "covid-disease-sh",
@@ -1343,7 +2364,8 @@
       "ok": true,
       "count": 1,
       "first": "COVID-19 · Germany",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "wger",
@@ -1354,7 +2376,20 @@
       "ok": true,
       "count": 5,
       "first": "2 Handed Kettlebell Swing",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "clinicaltables-conditions",
+      "name": "NLM Clinical Tables (conditions)",
+      "category": "health",
+      "proxy": false,
+      "sample": "diabetes",
+      "ok": true,
+      "count": 5,
+      "first": "Diabetes mellitus (DM)",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "uk-police",
@@ -1365,7 +2400,8 @@
       "ok": true,
       "count": 5,
       "first": "Crime data · 2026-09",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "uk-parliament",
@@ -1376,7 +2412,8 @@
       "ok": true,
       "count": 5,
       "first": "Alan Johnson",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ukgov-bills",
@@ -1387,7 +2424,8 @@
       "ok": true,
       "count": 5,
       "first": "Climate and Ecology Bill",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "congress-legislators",
@@ -1398,7 +2436,8 @@
       "ok": true,
       "count": 5,
       "first": "Maria Cantwell",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "govuk-search",
@@ -1409,7 +2448,8 @@
       "ok": true,
       "count": 5,
       "first": "Apply for your first provisional driving licence",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ukgov-postcode",
@@ -1420,7 +2460,8 @@
       "ok": true,
       "count": 1,
       "first": "SW1A 1AA",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "eu-open-data",
@@ -1431,7 +2472,8 @@
       "ok": true,
       "count": 5,
       "first": "England Population - Count",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "chicago-crimes",
@@ -1442,7 +2484,8 @@
       "ok": true,
       "count": 5,
       "first": "STALKING",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nyc-311",
@@ -1453,7 +2496,8 @@
       "ok": true,
       "count": 5,
       "first": "Illegal Parking",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "usaspending",
@@ -1464,7 +2508,8 @@
       "ok": true,
       "count": 5,
       "first": "400 Years of African-American History Commission",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "data-gov-au",
@@ -1475,7 +2520,8 @@
       "ok": true,
       "count": 5,
       "first": "Australia's Maritime Jurisdiction around Australia",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "open-canada",
@@ -1486,7 +2532,8 @@
       "ok": true,
       "count": 5,
       "first": "Reconstructed river water temperature dataset over Canada 1980-2018.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "eurostat",
@@ -1497,7 +2544,104 @@
       "ok": true,
       "count": 5,
       "first": "Germany inflation · 2025-12",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "opendatasoft-catalog",
+      "name": "OpenDataSoft public catalog",
+      "category": "government",
+      "proxy": false,
+      "sample": "open data",
+      "ok": true,
+      "count": 5,
+      "first": "Arrondissements départementaux - France",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "data-gouv-fr",
+      "name": "data.gouv.fr (French open data)",
+      "category": "government",
+      "proxy": false,
+      "sample": "france datasets",
+      "ok": true,
+      "count": 2,
+      "first": "Datasets Opéra - Activités maisons d'opéra - Réunion des Opéras de France",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "ibge-states",
+      "name": "IBGE (Brazilian states)",
+      "category": "government",
+      "proxy": false,
+      "sample": "brazil states",
+      "ok": true,
+      "count": 5,
+      "first": "Rondônia",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "austin-311",
+      "name": "Austin 311 service requests",
+      "category": "government",
+      "proxy": false,
+      "sample": "austin 311",
+      "ok": true,
+      "count": 5,
+      "first": "DSD - Outdoor Commercial Venue Music Complaint",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "sfgov-incidents",
+      "name": "San Francisco police incidents",
+      "category": "government",
+      "proxy": false,
+      "sample": "sfpd incidents",
+      "ok": true,
+      "count": 5,
+      "first": "Suspicious Occurrence",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "lacity-crime",
+      "name": "LAPD crime records",
+      "category": "government",
+      "proxy": false,
+      "sample": "lapd crime",
+      "ok": true,
+      "count": 5,
+      "first": "DOCUMENT FORGERY / STOLEN FELONY",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "nyc-collisions",
+      "name": "NYC motor vehicle collisions",
+      "category": "government",
+      "proxy": false,
+      "sample": "traffic collisions",
+      "ok": true,
+      "count": 5,
+      "first": "Collision in QUEENS · 1 injured",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "propublica-nonprofits",
+      "name": "ProPublica Nonprofit Explorer",
+      "category": "government",
+      "proxy": true,
+      "sample": "red cross",
+      "ok": true,
+      "count": 5,
+      "first": "Red Cross Civitans",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "carbon-intensity",
@@ -1508,7 +2652,8 @@
       "ok": true,
       "count": 1,
       "first": "UK grid carbon intensity",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "carbon-intensity-generation",
@@ -1519,7 +2664,8 @@
       "ok": true,
       "count": 1,
       "first": "UK generation mix now",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "energy-charts",
@@ -1530,7 +2676,8 @@
       "ok": true,
       "count": 5,
       "first": "Hydro pumped storage consumption",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "noaa-tides",
@@ -1541,7 +2688,32 @@
       "ok": true,
       "count": 1,
       "first": "2026-11-26 19:00 UTC",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "usgs-water",
+      "name": "USGS water levels (river discharge)",
+      "category": "environment",
+      "proxy": false,
+      "sample": "river flow",
+      "ok": true,
+      "count": 1,
+      "first": "POTOMAC RIVER NEAR WASH, DC LITTLE FALLS PUMP STA · discharge",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "octopus-energy",
+      "name": "Octopus Energy (UK tariffs)",
+      "category": "environment",
+      "proxy": false,
+      "sample": "energy tariffs",
+      "ok": true,
+      "count": 5,
+      "first": "Agile Octopus",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "artic",
@@ -1552,7 +2724,8 @@
       "ok": true,
       "count": 5,
       "first": "Early Morning, Tarpon Springs",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "met",
@@ -1563,7 +2736,20 @@
       "ok": true,
       "count": 5,
       "first": "Sunflowers",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "smk-art",
+      "name": "SMK (Statens Museum for Kunst)",
+      "category": "art",
+      "proxy": false,
+      "sample": "rembrandt",
+      "ok": true,
+      "count": 5,
+      "first": "Rembrandts moder (Rembrandt's Mother)",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "commons",
@@ -1574,7 +2760,8 @@
       "ok": true,
       "count": 5,
       "first": "Lightning striking the Eiffel Tower - NOAA.jpg",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "picsum",
@@ -1585,7 +2772,8 @@
       "ok": true,
       "count": 5,
       "first": "Photo by Alejandro Escamilla",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "dicebear",
@@ -1596,7 +2784,8 @@
       "ok": true,
       "count": 1,
       "first": "Avatar · frederick",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "podcast-search",
@@ -1607,7 +2796,8 @@
       "ok": true,
       "count": 5,
       "first": "Notnerd Podcast: Tech Better",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "imgflip",
@@ -1618,7 +2808,8 @@
       "ok": true,
       "count": 5,
       "first": "Drake Hotline Bling",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "iconify",
@@ -1629,7 +2820,8 @@
       "ok": true,
       "count": 5,
       "first": "material-symbols:home",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ipify",
@@ -1640,7 +2832,8 @@
       "ok": true,
       "count": 1,
       "first": "Your public IP: 98.88.87.70",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "cloudflare-dns",
@@ -1651,7 +2844,8 @@
       "ok": true,
       "count": 2,
       "first": "example.com → 104.20.23.154",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "google-dns",
@@ -1662,7 +2856,8 @@
       "ok": true,
       "count": 5,
       "first": "gmail.com MX",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "rdap",
@@ -1673,7 +2868,8 @@
       "ok": true,
       "count": 1,
       "first": "EXAMPLE.COM",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "httpbin",
@@ -1684,7 +2880,8 @@
       "ok": true,
       "count": 1,
       "first": "Your request, echoed",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "commoncrawl",
@@ -1695,7 +2892,8 @@
       "ok": true,
       "count": 5,
       "first": "November 2026 Index",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "geolocation-db",
@@ -1706,7 +2904,20 @@
       "ok": true,
       "count": 1,
       "first": "98.88.87.70 · Seattle, United States",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "wayback-cdx",
+      "name": "Wayback Machine (snapshots)",
+      "category": "internet",
+      "proxy": true,
+      "sample": "example.com",
+      "ok": true,
+      "count": 5,
+      "first": "http://example.com:80/",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "github",
@@ -1717,7 +2928,8 @@
       "ok": true,
       "count": 5,
       "first": "vercel/next.js",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "npm",
@@ -1728,7 +2940,8 @@
       "ok": true,
       "count": 5,
       "first": "express@5.3.0",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "pypi",
@@ -1739,7 +2952,8 @@
       "ok": true,
       "count": 1,
       "first": "requests@2.34.2",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "crates",
@@ -1750,7 +2964,8 @@
       "ok": true,
       "count": 5,
       "first": "serde@1.0.229",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "packagist",
@@ -1761,7 +2976,8 @@
       "ok": true,
       "count": 5,
       "first": "monolog/monolog",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "stackexchange",
@@ -1772,7 +2988,8 @@
       "ok": true,
       "count": 5,
       "first": "How do I reverse a list or loop over it backwards?",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "hn-comments",
@@ -1783,7 +3000,8 @@
       "ok": true,
       "count": 5,
       "first": "Here's a good write-up on the difference between postgres and MS SQL.http://www.pg-versus-ms.com/I&#",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "gitlab",
@@ -1794,7 +3012,8 @@
       "ok": true,
       "count": 5,
       "first": "gitlab-org/gitlab-runner",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "jsdelivr",
@@ -1805,7 +3024,8 @@
       "ok": true,
       "count": 1,
       "first": "react",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "mozilla-mdn",
@@ -1816,7 +3036,8 @@
       "ok": true,
       "count": 5,
       "first": "Fetch API",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "endoflife",
@@ -1827,7 +3048,8 @@
       "ok": true,
       "count": 5,
       "first": "Nodejs 26",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "bundlephobia",
@@ -1838,7 +3060,8 @@
       "ok": true,
       "count": 1,
       "first": "react@19.3.1",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "hibp-range",
@@ -1849,7 +3072,8 @@
       "ok": true,
       "count": 5,
       "first": "Hash suffix 0002EEFFB2CCA91812B5CC9956854E22BEB",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "reqres",
@@ -1860,7 +3084,8 @@
       "ok": true,
       "count": 5,
       "first": "Michael Lawson",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nodejs-releases",
@@ -1871,7 +3096,128 @@
       "ok": true,
       "count": 5,
       "first": "Node.js v27.0.0-alpha.0.2.0",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "npms-search",
+      "name": "npms.io (npm package search)",
+      "category": "dev",
+      "proxy": false,
+      "sample": "react router",
+      "ok": true,
+      "count": 5,
+      "first": "react-router@6.3.0",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "cdnjs-libraries",
+      "name": "cdnjs (JavaScript libraries)",
+      "category": "dev",
+      "proxy": false,
+      "sample": "jquery",
+      "ok": true,
+      "count": 5,
+      "first": "jquery",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "hex-packages",
+      "name": "Hex.pm (Elixir and Erlang packages)",
+      "category": "dev",
+      "proxy": false,
+      "sample": "phoenix",
+      "ok": true,
+      "count": 5,
+      "first": "a2ui 0.3.1",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "rubygems-search",
+      "name": "RubyGems (gem search)",
+      "category": "dev",
+      "proxy": true,
+      "sample": "rails",
+      "ok": true,
+      "count": 5,
+      "first": "rails 8.1.4.1",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "maven-central",
+      "name": "Maven Central (Java libraries)",
+      "category": "dev",
+      "proxy": true,
+      "sample": "junit",
+      "ok": true,
+      "count": 5,
+      "first": "org.robolectric:junit",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "docker-hub",
+      "name": "Docker Hub (image search)",
+      "category": "dev",
+      "proxy": true,
+      "sample": "nginx",
+      "ok": true,
+      "count": 5,
+      "first": "nginx",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "huggingface-models",
+      "name": "Hugging Face (model search)",
+      "category": "dev",
+      "proxy": false,
+      "sample": "bert",
+      "ok": true,
+      "count": 5,
+      "first": "google-bert/bert-base-uncased",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "devto-articles",
+      "name": "DEV Community (articles)",
+      "category": "dev",
+      "proxy": false,
+      "sample": "javascript",
+      "ok": true,
+      "count": 5,
+      "first": "JavaScript told me to buy 8 bags of concrete. I needed 7.",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "npm-downloads",
+      "name": "npm downloads (weekly counts)",
+      "category": "dev",
+      "proxy": false,
+      "sample": "react",
+      "ok": true,
+      "count": 1,
+      "first": "react downloads (last week)",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "jsonplaceholder",
+      "name": "JSONPlaceholder (fake REST posts)",
+      "category": "dev",
+      "proxy": false,
+      "sample": "jsonplaceholder",
+      "ok": true,
+      "count": 5,
+      "first": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "jokes",
@@ -1882,7 +3228,8 @@
       "ok": true,
       "count": 3,
       "first": "Why couldn't the skeleton go to the Christmas party?",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "chucknorris",
@@ -1893,7 +3240,8 @@
       "ok": true,
       "count": 1,
       "first": "If you somehow survive a roundhouse kick from Chuck Norris, you'd still go to jail for head butting his foot.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "uselessfacts",
@@ -1904,7 +3252,8 @@
       "ok": true,
       "count": 1,
       "first": "There were always 56 curls in Shirley Temple`s hair.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "advice",
@@ -1915,7 +3264,8 @@
       "ok": true,
       "count": 1,
       "first": "Advice #127",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "trivia-opentdb",
@@ -1926,7 +3276,8 @@
       "ok": true,
       "count": 3,
       "first": "The key of sharps does the key of G# minor contain?",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "zenquotes",
@@ -1937,7 +3288,8 @@
       "ok": true,
       "count": 1,
       "first": "You cannot control the behavior of others, but you can always choose how you respond to it.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "bored",
@@ -1948,7 +3300,8 @@
       "ok": true,
       "count": 1,
       "first": "Volunteer at your local food bank",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "agify",
@@ -1959,7 +3312,8 @@
       "ok": true,
       "count": 1,
       "first": "Michael",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "genderize",
@@ -1970,7 +3324,8 @@
       "ok": true,
       "count": 1,
       "first": "Peter",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nationalize",
@@ -1981,7 +3336,8 @@
       "ok": true,
       "count": 5,
       "first": "Likely country: US",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "simpsons",
@@ -1992,7 +3348,8 @@
       "ok": true,
       "count": 5,
       "first": "Homer Simpson",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "typefit-quotes",
@@ -2003,7 +3360,8 @@
       "ok": true,
       "count": 5,
       "first": "Genius is one percent inspiration and ninety-nine percent perspiration.",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "trivia-v2",
@@ -2014,7 +3372,8 @@
       "ok": true,
       "count": 5,
       "first": "What is Venereology the study of?",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "potter-api",
@@ -2025,7 +3384,8 @@
       "ok": true,
       "count": 5,
       "first": "Harry James Potter",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "ice-and-fire",
@@ -2036,7 +3396,8 @@
       "ok": true,
       "count": 1,
       "first": "Jon Snow",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "hipsum",
@@ -2047,7 +3408,104 @@
       "ok": true,
       "count": 1,
       "first": "Placeholder paragraph",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "kanye-quotes",
+      "name": "Kanye Rest (random quote)",
+      "category": "fun",
+      "proxy": false,
+      "sample": "kanye quote",
+      "ok": true,
+      "count": 1,
+      "first": "The thought police want to suppress freedom of thought",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "icanhazdadjoke",
+      "name": "icanhazdadjoke (dad jokes)",
+      "category": "fun",
+      "proxy": false,
+      "sample": "dad joke",
+      "ok": true,
+      "count": 1,
+      "first": "I thought my wife was joking when she said she'd leave me if I didn't stop signing \"I'm A Believer\"... Then I saw her face.",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "taylor-swift-quotes",
+      "name": "Taylor Swift API (lyrics)",
+      "category": "fun",
+      "proxy": false,
+      "sample": "taylor swift lyric",
+      "ok": true,
+      "count": 1,
+      "first": "I made you my temple, my mural, my sky. Now I'm begging for footnotes in the story of your life / Drawing hearts in the byline always taking up too much space or time",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "quotable-kurokeita",
+      "name": "Quotable (random quotes)",
+      "category": "fun",
+      "proxy": false,
+      "sample": "random quote",
+      "ok": true,
+      "count": 1,
+      "first": "Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious.",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "favqs-qotd",
+      "name": "FavQs (quote of the day)",
+      "category": "fun",
+      "proxy": true,
+      "sample": "quote of the day",
+      "ok": true,
+      "count": 1,
+      "first": "A work of art is the unique result of a unique temperament.",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "thrones-characters",
+      "name": "Thrones API (Game of Thrones cast)",
+      "category": "fun",
+      "proxy": false,
+      "sample": "Daenerys",
+      "ok": true,
+      "count": 1,
+      "first": "Daenerys Targaryen",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "rick-and-morty",
+      "name": "Rick and Morty API (characters)",
+      "category": "fun",
+      "proxy": false,
+      "sample": "rick sanchez",
+      "ok": true,
+      "count": 4,
+      "first": "Rick Sanchez",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "randomuser",
+      "name": "Random User (fake profiles)",
+      "category": "fun",
+      "proxy": false,
+      "sample": "random user",
+      "ok": true,
+      "count": 1,
+      "first": "Pilar Vásquez",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "timeapi-io",
@@ -2058,7 +3516,8 @@
       "ok": true,
       "count": 1,
       "first": "Europe/Berlin · 20:06",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nager-holidays",
@@ -2069,7 +3528,8 @@
       "ok": true,
       "count": 5,
       "first": "Neujahr",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "nager-countries",
@@ -2080,7 +3540,8 @@
       "ok": true,
       "count": 5,
       "first": "Andorra",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "hebcal",
@@ -2091,7 +3552,44 @@
       "ok": true,
       "count": 1,
       "first": "16 Kislev 5787",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "aladhan",
+      "name": "Aladhan (prayer times)",
+      "category": "time",
+      "proxy": false,
+      "sample": "prayer times London",
+      "ok": true,
+      "count": 5,
+      "first": "Fajr · 05:56 local time",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "kayaposoft-holidays",
+      "name": "Kayaposoft (public holidays)",
+      "category": "time",
+      "proxy": false,
+      "sample": "usa holidays",
+      "ok": true,
+      "count": 1,
+      "first": "Juneteenth National Independence Day",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "openholidays",
+      "name": "OpenHolidays (country holidays)",
+      "category": "time",
+      "proxy": false,
+      "sample": "countries",
+      "ok": true,
+      "count": 5,
+      "first": "Andorra",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "swiss-transport",
@@ -2102,7 +3600,8 @@
       "ok": true,
       "count": 5,
       "first": "Zürich HB",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "tfl",
@@ -2113,7 +3612,32 @@
       "ok": true,
       "count": 5,
       "first": "Bakerloo line",
-      "attempts": 1
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "wikivoyage",
+      "name": "Wikivoyage (travel guides)",
+      "category": "travel",
+      "proxy": false,
+      "sample": "Paris",
+      "ok": true,
+      "count": 1,
+      "first": "Paris",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "nhtsa-makes",
+      "name": "NHTSA vehicle makes",
+      "category": "travel",
+      "proxy": false,
+      "sample": "car makes",
+      "ok": true,
+      "count": 5,
+      "first": "ASTON MARTIN",
+      "cached": true,
+      "verifiedAt": "2026-11-26"
     }
   ]
 }

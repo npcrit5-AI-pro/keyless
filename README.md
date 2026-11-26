@@ -2,7 +2,7 @@
 
 Keyless is a search box that routes your question to the free web APIs most likely to answer it, queries them in parallel, and lays the results out by category. Every source needs no API key and no sign-up.
 
-**Sources: 192, all live-verified** (see [`reports/verification.md`](reports/verification.md)).
+**Sources: 303, all live-verified** (see [`reports/verification.md`](reports/verification.md)).
 
 ## Run it
 
@@ -61,6 +61,8 @@ npm run verify         # node scripts/verify.mjs
 ```
 
 It checks each source's sample query live, requires at least one item with a title and an HTTP(S) link, and checks CORS for direct sources. It writes `reports/verification.md` and `reports/verification.json` (use `--no-report` to skip writing, or `--only id1,id2` to run a subset). It exits non-zero if any source fails.
+
+To spare upstream rate limits, passing results are cached in `.cache/verify-cache.json` (git-ignored). A source is reused from the cache for 7 days while its registration text and the shared core and proxy code are unchanged; failures are never cached. Use `--all` to re-check everything.
 
 ## Notes
 
